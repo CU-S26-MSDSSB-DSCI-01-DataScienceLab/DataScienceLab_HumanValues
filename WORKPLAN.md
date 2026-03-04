@@ -18,11 +18,17 @@
 This project investigates the evolving relationship between personal values and political identity across generations in Europe (2018–2024). Utilizing the Schwartz Theory of Basic Human Values as a psychological framework, we analyze how core motivators like Universalism and Security correlate with Left-Right political self-placement across three European Social Survey rounds (9, 10, and 11).By tracking these value-attitude links through the global "shock" of the COVID-19 pandemic, we aim to determine if Gen Z and Millennials are developing a fundamentally different internal compass than their predecessors, potentially reshaping the future of European political stability.
 
 We want to find answers to the following questions:
+
 1- To what extent do Schwartz’s basic human values (specifically Universalism and Tradition) correlate with Left-Right self-placement across European countries?
+
 2- How do political attitudes and value priorities differ across generational cohorts (Gen Z, Millennials, Gen X, and Boomers) in the Pre and post pandemic landscape?
+
 3- Did the COVID-19 pandemic lead to a measurable shift in 'Conservation' values (Security, Conformity, Tradition) and 'Political Trust' between Round 9 and Round 11?
+
 4- Does the link between personal values and political orientation become stronger or weaker as respondents age, or is the relationship fixed within generational cohorts?
+
 5- How does the value of 'Universalism' predict attitudes toward government-led income redistribution, and has this relationship changed for Gen Z compared to previous generations?
+
 6- To what extent does the correlation between human values and political attitudes vary between different European countries?
 
 #### Tasks
