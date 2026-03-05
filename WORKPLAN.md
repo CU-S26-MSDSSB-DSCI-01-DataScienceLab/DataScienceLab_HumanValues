@@ -19,7 +19,7 @@ This project investigates the evolving relationship between personal values and 
 
 We want to find answers to the following questions:
 
-1- To what extent do Schwartz’s basic human values (specifically Universalism and Tradition) correlate with Left-Right self-placement across European countries?
+1- To what extent do Schwartz's ten basic human values predict political attitudes in Europe, and which values have the greatest impact?
 
 2- How do political attitudes and value priorities differ across generational cohorts (Gen Z, Millennials, Gen X, and Boomers) in the Pre and post pandemic landscape?
 
