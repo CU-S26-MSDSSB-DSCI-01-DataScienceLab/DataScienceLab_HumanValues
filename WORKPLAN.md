@@ -41,7 +41,7 @@ We want to find answers to the following questions:
 | *Task 2*                         | TM  | Week 6 |
 | *Task 3*                         | XY  | Week 6 |
 | *Task 4*                         | FL, TM  | Week 7 |
-| Write executive summary for project page |	UD | Week 6
+| Write executive summary for project page (Index.qmd)|	UD | Week 6
 |Identify ESS variables for Universalism and redistribution |	UD | Week 6
                         
 
