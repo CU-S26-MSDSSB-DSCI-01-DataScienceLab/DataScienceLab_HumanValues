@@ -4,6 +4,22 @@ title: "Title of Section 1"
 
 <!-- You have to develop your own headline structure. -->
 
-## Headline 1
+## Data Preprocessing
+### Data importing
+```{python}
+import pandas as pd
+import numpy as np
+
+# Upload file from ESS website and load it into a DataFrame
+file_path = "ESS9e03_3-ESS10e03_3-ESS10SCe03_2-ESS11e04_1-subset.csv"
+df = pd.read_csv(file_path, low_memory=False)
+print("✅ CSV Load Successful!")
+print(f"Dataset Size: {df.shape[0]} rows x {df.shape[1]} columns")
+```
+
+### Data Cleaning
+```{python}
+
+```
 
 ## Headline 2
