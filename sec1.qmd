@@ -9,10 +9,16 @@ title: "Title of Section 1"
 ```{python}
 import pandas as pd
 import numpy as np
+import zipfile # For handling zip files
 
-# Upload file from ESS website and load it into a DataFrame
-file_path = "ESS9e03_3-ESS10e03_3-ESS10SCe03_2-ESS11e04_1-subset.csv"
-df = pd.read_csv(file_path, low_memory=False)
+# Upload zip.folder from ESS website 
+zip_path = "ESS9e03_3-ESS10e03_3-ESS10SCe03_2-ESS11e04_1-subset.zip"
+csv_inside = "ESS9e03_3-ESS10e03_3-ESS10SCe03_2-ESS11e04_1-subset.csv"
+
+with zipfile.ZipFile(zip_path, 'r') as z:
+        with z.open(csv_inside) as f:
+            df = pd.read_csv(f, low_memory=False)
+
 print("✅ CSV Load Successful!")
 print(f"Dataset Size: {df.shape[0]} rows x {df.shape[1]} columns")
 ```
