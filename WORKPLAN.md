@@ -8,7 +8,7 @@
 | TAYAPHON RODSAI     | TR  |                  |
 | PELIN KIMIZ         | PK  |                  |
 | FELIX SANDILE THWALA| FST |                  |
-| UYAZI DUBE          | UD  |                  |
+| UYAZI DUBE          | UD  |Does Universalism predict support for income redistribution? |
 | YVETTE MARIA MONARI | YMM |                  |
 
 ## Proposal Presentation
@@ -41,7 +41,9 @@ We want to find answers to the following questions:
 | *Task 2*                         | TM  | Week 6 |
 | *Task 3*                         | XY  | Week 6 |
 | *Task 4*                         | FL, TM  | Week 7 |
-| ...                         | ...  | ... |
+| Write executive summary for project page |	UD | Week 6
+|Identify ESS variables for Universalism and redistribution |	UD | Week 6
+                        
 
 ## Progress Presentation
 
@@ -57,7 +59,8 @@ presentation! (You can delete this text in italics when done.)*
 *Team member 2*: *Text*  
 
 *Team member 3*: *Text*  
-
+Uyazi Dube: Prepared the executive summary for the project and identified the relevant variables in the European Social Survey dataset for analyzing the relationship between Universalism and support for income redistribution. Began constructing the Universalism value index and defined the redistribution attitude variable. Conducted exploratory analysis to examine patterns across generational cohorts. 1. Data and Variables : The analysis uses data from Rounds 9–11 of the European Social Survey. 2.Key variables include: Dependent variable
+(gincdif – attitudes toward government reducing income differences). 2.Independent variable: Universalism value index constructed from value items:ipeqopt, ipudrst, and phlppl. 
 ...
 
 #### Tasks
