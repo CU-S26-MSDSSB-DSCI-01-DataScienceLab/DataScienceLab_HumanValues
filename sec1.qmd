@@ -23,8 +23,43 @@ print("✅ CSV Load Successful!")
 print(f"Dataset Size: {df.shape[0]} rows x {df.shape[1]} columns")
 ```
 
-### Data Cleaning
+### Data Exploration
 ```{python}
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Dataset Dimensions (Rows, Columns)
+print(f"### 1. Dataset Dimensions")
+print(f"The dataset contains {df.shape[0]} respondents and {df.shape[1]} variables.")
+# Data Structure
+print("\n### 2. Data Structure")
+print("Column Names (First 50):")
+print(df.columns.tolist()[:50])
+
+# 3. Raw Data Preview
+print("\n### 3. Raw Data Preview (Selected Columns)")
+# pick only the columns of interest to display: country, birth year, and some human values questions
+interest_cols = ['cntry', 'yrbrn'] + [c for c in df.columns if c.startswith('ip')][:5]
+print(df[interest_cols].head())
+
+# Statistical Summary
+print("\n### 4. Statistical Summary of Values & Birth Year")
+key_vars = ['yrbrn'] + [c for c in df.columns if c.startswith('ip')][:10]
+display(df[key_vars].describe().T)
+
+# Diversity
+print("\n### 5. Country Distribution (Top 10)")
+display(df['cntry'].value_counts().head(10))
+
+```
+
+
+
+### Data Cleansing
+```{python}
+#Missing Values
+
 
 ```
 
