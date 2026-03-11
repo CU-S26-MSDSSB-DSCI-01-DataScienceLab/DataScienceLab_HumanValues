@@ -5,11 +5,11 @@
 | Name                | Key | Focus (Optional) |
 |---------------------|-----|------------------|
 | SIBAHLE MABHUDA     | SM  |                  |
-| TAYAPHON RODSAI     | TR  |                  |
+| TAYAPHON RODSAI     | TR  | How do political attitudes and Human value priorities differ across generational cohorts in the Pre and post pandemic landscape? |
 | PELIN KIMIZ         | PK  |                  |
 | FELIX SANDILE THWALA| FST |                  |
-| UYAZI DUBE          | UD  |Does Universalism predict support for income redistribution? |
-| YVETTE MARIA MONARI | YMM |                  |
+| UYAZI DUBE          | UD  | Does Universalism predict support for income redistribution? |
+| YVETTE MARIA MONARI | YMM | To what extent does the correlation between human values and political attitudes vary between different European countries?  |
 
 ## Proposal Presentation
 
@@ -35,14 +35,14 @@ We want to find answers to the following questions:
 
 *All team members should appear here with at least one task. If you plan ahead you can already now dradft tasks for the time after the progress presentation.*
 
-| Task                             | Who | When |
-|----------------------------------|-----|------|
-| *Task 1*                         | FL  | Week 6 |
-| *Task 2*                         | TM  | Week 6 |
-| *Task 3*                         | XY  | Week 6 |
-| *Task 4*                         | FL, TM  | Week 7 |
-| Write executive summary for project page (Index.qmd)|	UD | Week 6
-|Identify ESS variables for Universalism and redistribution |	UD | Week 6
+| Task                                      |         Who        | When |
+|-------------------------------------------|-------------|------|
+| Cleaning data and create the columns      | Maria and Tayaphon | Week 6 |
+| Analyzing                                 |         all        | Week 7 |
+| *Task 3*                                  | XY                 | Week 8 |
+| *Task 4*                                  | FL, TM             | Week 9 |
+| Write executive summary for project page (Index.qmd) |	UD   | Week   |
+| Identify ESS variables for Universalism and redistribution |	UD | Week |
                         
 
 ## Progress Presentation
@@ -54,13 +54,16 @@ presentation! (You can delete this text in italics when done.)*
 
 *Briefly describe for each team member what hs been done since the proposal presentation. This can be a list like: "contributed to the data prepatation script, started the page for question 1 and wrote the outline of it, created a first descriptive visual about XYZ, configured GitHub pages such the draft website is live*
 
-*Team member 1*: *Text*  
+*Team member 1*: 
+Maria and Tayaphon : Uploaded Data, data exploration, cleaning missing value, and create new columns (generation, 10 dimension of Human Values)
 
 *Team member 2*: *Text*  
 
 *Team member 3*: *Text*  
 Uyazi Dube: Prepared the executive summary for the project and identified the relevant variables in the European Social Survey dataset for analyzing the relationship between Universalism and support for income redistribution. Began constructing the Universalism value index and defined the redistribution attitude variable. Conducted exploratory analysis to examine patterns across generational cohorts. 1. Data and Variables : The analysis uses data from Rounds 9–11 of the European Social Survey. 2.Key variables include: Dependent variable
 (gincdif – attitudes toward government reducing income differences). 2.Independent variable: Universalism value index constructed from value items:ipeqopt, ipudrst, and phlppl. 
+
+
 ...
 
 #### Tasks
