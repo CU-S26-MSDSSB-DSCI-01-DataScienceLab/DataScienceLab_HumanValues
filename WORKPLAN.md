@@ -4,7 +4,9 @@
 
 | Name                | Key | Focus (Optional) |
 |---------------------|-----|------------------|
-| SIBAHLE MABHUDA     | SM  |                  |
+| SIBAHLE MABHUDA     | SM  | To what extent do Schwartz's ten basic human values predict political attitudes in Europe, and which values have the greatest impact?
+
+                 |
 | TAYAPHON RODSAI     | TR  | How do political attitudes and Human value priorities differ across generational cohorts in the Pre and post pandemic landscape? |
 | PELIN KIMIZ         | PK  |                  |
 | FELIX SANDILE THWALA| FST |                  |
