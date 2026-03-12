@@ -7,7 +7,7 @@
 | SIBAHLE MABHUDA     | SM  | To what extent do Schwartz's ten basic human values predict political attitudes in Europe, and which values have the greatest impact?|
 | TAYAPHON RODSAI     | TR  | How do political attitudes and Human value priorities differ across generational cohorts in the Pre and post pandemic landscape? |
 | PELIN KIMIZ         | PK  | Did the COVID-19 pandemic lead to a measurable shift in conservation values (Security, Conformity, Tradition) and political trust in Europe between 2018 and 2024?|
-| FELIX SANDILE THWALA| FST |                  |
+| FELIX SANDILE THWALA| FST | Do age cohorts differ in life satisfaction and trust?                  |
 | UYAZI DUBE          | UD  | Does Universalism predict support for income redistribution? |
 | YVETTE MARIA MONARI | YMM | To what extent does the correlation between human values and political attitudes vary between different European countries?  |
 
@@ -25,7 +25,7 @@ We want to find answers to the following questions:
 
 3- Did the COVID-19 pandemic lead to a measurable shift in 'Conservation' values (Security, Conformity, Tradition) and 'Political Trust' between Round 9 and Round 11?
 
-4- Does the link between personal values and political orientation become stronger or weaker as respondents age, or is the relationship fixed within generational cohorts?
+4- Do age cohorts differ in life satisfaction and trust?
 
 5- How does the value of 'Universalism' predict attitudes toward government-led income redistribution, and has this relationship changed for Gen Z compared to previous generations?
 
