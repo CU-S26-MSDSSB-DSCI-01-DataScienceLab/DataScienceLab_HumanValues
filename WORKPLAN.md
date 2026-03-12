@@ -42,8 +42,8 @@ We want to find answers to the following questions:
 | Analyzing                                 |         all        | Week 7 |
 | *Task 3*                                  | XY                 | Week 8 |
 | *Task 4*                                  | FL, TM             | Week 9 |
-| Write executive summary for project page (Index.qmd) |	UD   | Week   |
-| Identify ESS variables for Universalism and redistribution |	UD | Week |
+| Write executive summary for project page (Index.qmd) |	UD   | Week  6 |
+| Identify ESS variables for Universalism and redistribution |	UD | Week 7|
                         
 
 ## Progress Presentation
