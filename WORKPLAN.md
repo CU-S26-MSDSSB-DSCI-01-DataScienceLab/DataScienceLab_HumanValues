@@ -6,7 +6,7 @@
 |---------------------|-----|------------------|
 | SIBAHLE MABHUDA     | SM  | To what extent do Schwartz's ten basic human values predict political attitudes in Europe, and which values have the greatest impact?|
 | TAYAPHON RODSAI     | TR  | How do political attitudes and Human value priorities differ across generational cohorts in the Pre and post pandemic landscape? |
-| PELIN KIMIZ         | PK  |                  |
+| PELIN KIMIZ         | PK  | Did the COVID-19 pandemic lead to a measurable shift in conservation values (Security, Conformity, Tradition) and political trust in Europe between 2018 and 2024?|
 | FELIX SANDILE THWALA| FST |                  |
 | UYAZI DUBE          | UD  | Does Universalism predict support for income redistribution? |
 | YVETTE MARIA MONARI | YMM | To what extent does the correlation between human values and political attitudes vary between different European countries?  |
@@ -37,13 +37,12 @@ We want to find answers to the following questions:
 
 | Task                                      |         Who        | When |
 |-------------------------------------------|--------------------|------|
-| Exporting dataset from ESS website and creating presentation slides  |    Maria   | Week 5 |
-| Cleaning data and create the columns      | Maria and Tayaphon | Week 6 |
-| Analyzing                                 |         all        | Week 7 |
-| *Task 3*                                  | XY                 | Week 8 |
-| *Task 4*                                  | FL, TM             | Week 9 |
-| Write executive summary for project page (Index.qmd) |	UD   | Week  6 |
-| Identify ESS variables for Universalism and redistribution |	UD | Week 7|
+| Exporting dataset from ESS website and creating presentation slides | YMM | Week 5 |
+| Cleaning data and create the columns      | YMM, TR | Week 6 |
+| Write executive summary for project page (Index.qmd) |	UD | Week  6 |
+| Analyzing                                 | All | Week 7 |
+| Identify ESS variables for Universalism and redistribution | UD | Week 7 |
+| Identify variables and analyze pre- vs post-pandemic changes in Conservation values and Political Trust | PK | Week 7 |
                         
 
 ## Progress Presentation
