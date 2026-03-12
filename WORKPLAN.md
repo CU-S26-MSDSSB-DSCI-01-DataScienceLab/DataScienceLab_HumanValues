@@ -4,9 +4,7 @@
 
 | Name                | Key | Focus (Optional) |
 |---------------------|-----|------------------|
-| SIBAHLE MABHUDA     | SM  | To what extent do Schwartz's ten basic human values predict political attitudes in Europe, and which values have the greatest impact?
-
-                 |
+| SIBAHLE MABHUDA     | SM  | To what extent do Schwartz's ten basic human values predict political attitudes in Europe, and which values have the greatest impact?|
 | TAYAPHON RODSAI     | TR  | How do political attitudes and Human value priorities differ across generational cohorts in the Pre and post pandemic landscape? |
 | PELIN KIMIZ         | PK  |                  |
 | FELIX SANDILE THWALA| FST |                  |
@@ -38,7 +36,8 @@ We want to find answers to the following questions:
 *All team members should appear here with at least one task. If you plan ahead you can already now dradft tasks for the time after the progress presentation.*
 
 | Task                                      |         Who        | When |
-|-------------------------------------------|-------------|------|
+|-------------------------------------------|--------------------|------|
+| Exporting dataset from ESS website and creating presentation slides  |    Maria   | Week 5 |
 | Cleaning data and create the columns      | Maria and Tayaphon | Week 6 |
 | Analyzing                                 |         all        | Week 7 |
 | *Task 3*                                  | XY                 | Week 8 |
@@ -57,7 +56,8 @@ presentation! (You can delete this text in italics when done.)*
 *Briefly describe for each team member what hs been done since the proposal presentation. This can be a list like: "contributed to the data prepatation script, started the page for question 1 and wrote the outline of it, created a first descriptive visual about XYZ, configured GitHub pages such the draft website is live*
 
 *Team member 1*: 
-Maria and Tayaphon : Uploaded Data, data exploration, cleaning missing value, and create new columns (generation, 10 dimension of Human Values)
+Maria created the presentation slides for the first presentation.
+Maria and Tayaphon: Uploaded Data, data exploration, cleaning missing values, and created new columns (generation, 10 dimensions of Human Values)
 
 *Team member 2*: *Text*  
 
