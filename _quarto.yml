@@ -6,7 +6,7 @@ project:
     - "!*.md"   # This excludes all `.md` files, like `INSTRUCTIONS.md` to be put into the _site folder. 
 
 website:
-  title: "THE TITLE OF YOUR PROJECT"    # Replace with the title of your project
+  title: "A Generational Analysis of the Relationship Between Human Values and Political Attitudes in Europe (2018–2024)"    # Replace with the title of your project
   navbar: # This specifies the navigation bar at the top of the page.
     left:
       - text: "Home"
@@ -16,7 +16,9 @@ website:
     contents:
       - introduction.qmd
       - sec1.qmd
+      - Sec1.jpynb
       - sec2.ipynb
+      - pelin_analysis.ipynb
       - conclusion.qmd
       - dashboard.qmd
 

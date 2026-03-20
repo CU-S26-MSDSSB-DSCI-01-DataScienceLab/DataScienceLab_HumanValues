@@ -1,0 +1,153 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Title of Section 1\"\n",
+        "---\n",
+        "\n",
+        "<!-- You have to develop your own headline structure. -->\n",
+        "\n",
+        "## Data Preprocessing\n",
+        "### Data importing"
+      ],
+      "id": "47eed6ca"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "import zipfile # For handling zip files\n",
+        "\n",
+        "# Upload zip.folder from ESS website \n",
+        "zip_path = \"ESS9e03_3-ESS10e03_3-ESS10SCe03_2-ESS11e04_1-subset.zip\"\n",
+        "csv_inside = \"ESS9e03_3-ESS10e03_3-ESS10SCe03_2-ESS11e04_1-subset.csv\"\n",
+        "\n",
+        "with zipfile.ZipFile(zip_path, 'r') as z:\n",
+        "        with z.open(csv_inside) as f:\n",
+        "            df = pd.read_csv(f, low_memory=False)\n",
+        "\n",
+        "print(\" CSV Load Successful!\")\n",
+        "print(f\"Dataset Size: {df.shape[0]} rows x {df.shape[1]} columns\")"
+      ],
+      "id": "fd9d4ab6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Data Exploration"
+      ],
+      "id": "ec66b0c0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns\n",
+        "\n",
+        "# Dataset Dimensions (Rows, Columns)\n",
+        "print(f\"### 1. Dataset Dimensions\")\n",
+        "print(f\"The dataset contains {df.shape[0]} respondents and {df.shape[1]} variables.\")\n",
+        "# Data Structure\n",
+        "print(\"\\n### 2. Data Structure\")\n",
+        "print(\"Column Names (First 50):\")\n",
+        "print(df.columns.tolist()[:50])\n",
+        "\n",
+        "# 3. Raw Data Preview\n",
+        "print(\"\\n### 3. Raw Data Preview (Selected Columns)\")\n",
+        "# pick only the columns of interest to display: country, birth year, and some human values questions\n",
+        "interest_cols = ['cntry', 'yrbrn'] + [c for c in df.columns if c.startswith('ip')][:5]\n",
+        "print(df[interest_cols].head())\n",
+        "\n",
+        "# Statistical Summary\n",
+        "print(\"\\n### 4. Statistical Summary of Values & Birth Year\")\n",
+        "key_vars = ['yrbrn'] + [c for c in df.columns if c.startswith('ip')][:10]\n",
+        "display(df[key_vars].describe().T)\n",
+        "\n",
+        "# Diversity\n",
+        "print(\"\\n### 5. Country Distribution (Top 10)\")\n",
+        "display(df['cntry'].value_counts().head(10))"
+      ],
+      "id": "a6cfa03e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Data Cleansing\n",
+        "# --- 1. Handling Missing Data (Refusals, Don't Knows) ---\n",
+        "# We replace ESS-specific missing codes with NaN (Not a Number)\n",
+        "value_cols = [c for c in df.columns if c.startswith('ip')]\n",
+        "df[value_cols] = df[value_cols].replace([7, 8, 9], np.nan)\n",
+        "df['lrscale'] = df['lrscale'].replace([77, 88, 99], np.nan)\n",
+        "df['yrbrn'] = df['yrbrn'].replace([9999], np.nan)\n",
+        "\n",
+        "# --- 2. Reverse Coding the Values ---\n",
+        "# Transformation: (Max + 1) - original_value\n",
+        "# This ensures 6 = \"Very much like me\" and 1 = \"Not at all like me\"\n",
+        "df[value_cols] = 7 - df[value_cols]\n",
+        "\n",
+        "# --- 3. Creating Generational Cohorts ---\n",
+        "conditions = [\n",
+        "    (df['yrbrn'] >= 1997),\n",
+        "    (df['yrbrn'] >= 1981) & (df['yrbrn'] <= 1996),\n",
+        "    (df['yrbrn'] >= 1965) & (df['yrbrn'] <= 1980),\n",
+        "    (df['yrbrn'] <= 1964)\n",
+        "]\n",
+        "labels = ['Gen Z', 'Millennials', 'Gen X', 'Boomers']\n",
+        "df['generation'] = np.select(conditions, labels, default='Unknown')\n",
+        "\n",
+        "# --- 4. Creating Schwartz Value Dimensions (The Full 10) ---\n",
+        "# We calculate the mean of specific items to create the core value pillars\n",
+        "df['Universalism'] = df[['ipudrst', 'iphlppl', 'ipenvir']].mean(axis=1)\n",
+        "df['Benevolence'] = df[['iphlppl', 'ipudrst']].mean(axis=1)\n",
+        "df['Tradition'] = df[['imptrad', 'ipmodst']].mean(axis=1)\n",
+        "df['Security'] = df[['impsafe', 'ipstrgv']].mean(axis=1)\n",
+        "df['Conformity'] = df[['ipfrule', 'ipbhvar']].mean(axis=1)\n",
+        "df['Self-Direction'] = df[['impfree', 'ipgdtim']].mean(axis=1)\n",
+        "df['Stimulation'] = df[['ipstmlt', 'iphlth']].mean(axis=1)\n",
+        "df['Hedonism'] = df[['ipgdtim', 'impdiff']].mean(axis=1)\n",
+        "df['Achievement'] = df[['ipeqopt', 'ipshlpp']].mean(axis=1)\n",
+        "df['Power'] = df[['iprich', 'iprspot']].mean(axis=1)\n",
+        "\n",
+        "# List of Master Value columns for easy access in Section 2\n",
+        "schwartz_values = [\n",
+        "    'Universalism', 'Benevolence', 'Tradition', 'Security', 'Conformity',\n",
+        "    'Self-Direction', 'Stimulation', 'Hedonism', 'Achievement', 'Power'\n",
+        "]\n",
+        "\n",
+        "print(\"Data Cleansing Complete: Missing values handled and generations assigned.\")\n",
+        "\n",
+        "# --- 5. Cleaned Data Preview ---\n",
+        "# Verification check for the project team\n",
+        "print(\"\\n### Cleaned Data Preview (Transformed Variables)\")\n",
+        "display(df[['generation', 'lrscale'] + schwartz_values].head())\n",
+        "\n",
+        "```\n",
+        "\n",
+        "## Headline 2"
+      ],
+      "id": "b1586586"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\Pelin\\AppData\\Roaming\\Python\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
