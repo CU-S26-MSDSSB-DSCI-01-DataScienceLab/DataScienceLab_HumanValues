@@ -13,7 +13,7 @@
         "## Data Preprocessing\n",
         "### Data importing"
       ],
-      "id": "47eed6ca"
+      "id": "2c4a72e2"
     },
     {
       "cell_type": "code",
@@ -34,7 +34,7 @@
         "print(\" CSV Load Successful!\")\n",
         "print(f\"Dataset Size: {df.shape[0]} rows x {df.shape[1]} columns\")"
       ],
-      "id": "fd9d4ab6",
+      "id": "b4462b61",
       "execution_count": null,
       "outputs": []
     },
@@ -44,7 +44,7 @@
       "source": [
         "### Data Exploration"
       ],
-      "id": "ec66b0c0"
+      "id": "a574c642"
     },
     {
       "cell_type": "code",
@@ -76,7 +76,7 @@
         "print(\"\\n### 5. Country Distribution (Top 10)\")\n",
         "display(df['cntry'].value_counts().head(10))"
       ],
-      "id": "a6cfa03e",
+      "id": "011a9689",
       "execution_count": null,
       "outputs": []
     },
@@ -137,7 +137,7 @@
         "\n",
         "## Headline 2"
       ],
-      "id": "b1586586"
+      "id": "a7f17fed"
     }
   ],
   "metadata": {

@@ -15,10 +15,8 @@ website:
     style: "docked"
     contents:
       - introduction.qmd
-      - sec1.qmd
-      - Sec1.jpynb
-      - sec2.ipynb
       - pelin_analysis.ipynb
+      - Felix-Analysis.ipynb
       - conclusion.qmd
       - dashboard.qmd
 
