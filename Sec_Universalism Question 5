@@ -1,0 +1,100 @@
+## Research Question
+
+How does the value of Universalism predict attitudes toward government-led income redistribution, and has this relationship changed for Gen Z compared to previous generations?
+
+## Data and Variables
+
+The analysis uses data from Rounds 9–11 of the European Social Survey, covering the period from 2018 to 2024. These rounds allow for the examination of value–attitude relationships before, during, and after the COVID-19 pandemic.
+
+The key variables used in this analysis are as follows:
+
+## Dependent Variable
+
+The dependent variable is support for government-led income redistribution, measured using the item:
+gincdif: Government should reduce differences in income levels.
+Responses are recorded on a Likert scale, where lower values indicate stronger agreement with redistribution.
+
+## Independent Variable
+
+The main independent variable is Universalism, based on the Schwartz Theory of Basic Human Values. Universalism reflects values related to equality, social justice, and concern for others.
+A Universalism index is constructed by averaging the following items:
+
+ipeqopt: Importance of equal opportunities
+ipudrst: Importance of understanding different people
+iphlppl: Importance of helping others
+
+Higher values indicate stronger endorsement of Universalism values.
+
+## Analysis
+```{python}
+import pandas as pd
+import numpy as np
+
+# Load data
+df = pd.read_csv("DataScienceLab_HumanValues-main/ess_cleaned_data.csv")
+
+# Replace ESS missing values
+df = df.replace([77, 88, 99], np.nan)
+
+# Construct Universalism index
+df["universalism"] = df[["ipeqopt", "ipudrst", "iphlppl"]].mean(axis=1)
+
+# Check basic output
+df[["gincdif", "universalism"]].describe()
+```
+
+```{python}
+import matplotlib.pyplot as plt
+
+# Histogram of Universalism
+plt.figure()
+df["universalism"].hist()
+plt.title("Distribution of Universalism Values")
+plt.xlabel("Universalism")
+plt.ylabel("Frequency")
+plt.show()
+
+# Histogram of redistribution attitudes
+plt.figure()
+df["gincdif"].hist()
+plt.title("Distribution of Redistribution Attitudes (gincdif)")
+plt.xlabel("gincdif")
+plt.ylabel("Frequency")
+plt.show()
+
+# Correlation
+corr = df[["universalism", "gincdif"]].corr()
+print(corr)
+```
+
+```{python}
+def assign_generation(year):
+    if pd.isna(year):
+        return np.nan
+    elif 1997 <= year <= 2012:
+        return "Gen Z"
+    elif 1981 <= year <= 1996:
+        return "Millennials"
+    elif 1965 <= year <= 1980:
+        return "Gen X"
+    elif 1946 <= year <= 1964:
+        return "Boomers"
+    else:
+        return "Other"
+
+df["generation"] = df["yrbrn"].apply(assign_generation)
+
+# Mean redistribution by generation
+group_means = df.groupby("generation")["gincdif"].mean()
+print(group_means)
+```
+
+Preliminary Findings
+
+The exploratory analysis provides initial insight into the relationship between Universalism values and attitudes toward income redistribution.
+
+The distribution of Universalism values indicates variation in the importance individuals place on equality and social justice. Similarly, responses to the redistribution variable (gincdif) show differing levels of support for government intervention in reducing income inequality.
+
+Preliminary correlation analysis suggests a relationship between Universalism and redistribution attitudes, with individuals who score higher on Universalism tending to express stronger support for redistribution.
+
+When comparing across generational cohorts, differences emerge in average attitudes toward redistribution. These initial patterns suggest that generational differences may play a role in shaping how values translate into political preferences.
