@@ -43,6 +43,9 @@ We want to find answers to the following questions:
 | Analyzing                                 | All | Week 7 |
 | Identify ESS variables for Universalism and redistribution | UD | Week 7 |
 | Identify variables and analyze pre- vs post-pandemic changes in Conservation values and Political Trust | PK | Week 7 |
+| Mrat correction  |TR| Week 8|
+| Literature review |FST |week 8|
+| Data Visualization | All | Week 9 |
                         
 
 ## Progress Presentation
@@ -58,7 +61,10 @@ presentation! (You can delete this text in italics when done.)*
 Maria created the presentation slides for the first presentation.
 Maria and Tayaphon: Uploaded Data, data exploration, cleaning missing values, and created new columns (generation, 10 dimensions of Human Values)
 
-*Team member 2*: *Text*  
+*Team member 2*: 
+Tayaphon uploaded Data, did data exploration, cleaned missing values, created new columns (generation, 10 dimensions of Human Values), and corrected the scale to be centered.
+She examined exclusively Question 2 about the differences in political attitudes and value priorities across generational cohorts in the Pre and post-pandemic landscape.
+
 
 *Team member 3*: *Text*  
 Uyazi Dube: Prepared the executive summary for the project and identified the relevant variables in the European Social Survey dataset for analyzing the relationship between Universalism and support for income redistribution. Began constructing the Universalism value index and defined the redistribution attitude variable. Conducted exploratory analysis to examine patterns across generational cohorts. 1. Data and Variables : The analysis uses data from Rounds 9–11 of the European Social Survey. 2.Key variables include: Dependent variable
