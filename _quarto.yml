@@ -15,8 +15,11 @@ website:
     style: "docked"
     contents:
       - introduction.qmd
+      - sibahle_question 1.ipynb
+      - Q2_Tayaphon.ipynb
       - pelin_analysis.ipynb
       - Felix-Analysis.ipynb
+      - Sec_Universalism Question
       - conclusion.qmd
       - dashboard.qmd
 
