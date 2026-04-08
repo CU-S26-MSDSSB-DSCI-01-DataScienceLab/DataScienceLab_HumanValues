@@ -2,7 +2,7 @@
 
 ## Team
 
-| Name                | Key | Focus (Optional) |
+| Name                | Key | Focus  |
 |---------------------|-----|------------------|
 | SIBAHLE MABHUDA     | SM  | To what extent do Schwartz's ten basic human values predict political attitudes in Europe, and which values have the greatest impact?|
 | TAYAPHON RODSAI     | TR  | How do political attitudes and Human value priorities differ across generational cohorts in the Pre and post pandemic landscape? |
@@ -64,6 +64,7 @@ Maria and Tayaphon: Uploaded Data, data exploration, cleaning missing values, an
 Uyazi Dube: Prepared the executive summary for the project and identified the relevant variables in the European Social Survey dataset for analyzing the relationship between Universalism and support for income redistribution. Began constructing the Universalism value index and defined the redistribution attitude variable. Conducted exploratory analysis to examine patterns across generational cohorts. 1. Data and Variables : The analysis uses data from Rounds 9–11 of the European Social Survey. 2.Key variables include: Dependent variable
 (gincdif – attitudes toward government reducing income differences). 2.Independent variable: Universalism value index constructed from value items:ipeqopt, ipudrst, and phlppl. 
 
+Pelin Kimiz: Focused exclusively on Question 3 (COVID-19 and Value Change). Her contributions include: constructing the Conservation and Political Trust indices, identifying the data limitation in Round 11 (missing Conservation values), conducting independent t-tests to compare pre-pandemic (Round 9) and post-pandemic (Round 10/11) periods, interpreting the statistical results, and generating all visualizations (line plots for Conservation and Political Trust trends). Additionally, she structured the Jupyter notebook section for Question 3 with clear methodological explanations and findings, and prepared this progress summary.
 
 ...
 
