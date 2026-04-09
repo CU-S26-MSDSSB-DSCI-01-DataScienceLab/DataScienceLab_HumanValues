@@ -66,7 +66,7 @@ Tayaphon uploaded Data, did data exploration, cleaned missing values, created ne
 She examined exclusively Question 2 about the differences in political attitudes and value priorities across generational cohorts in the Pre and post-pandemic landscape.
 
 
-*Team member 3*: *Text*  
+*Team member 3*: 
 Uyazi Dube: Prepared the executive summary for the project and identified the relevant variables in the European Social Survey dataset for analyzing the relationship between Universalism and support for income redistribution. Began constructing the Universalism value index and defined the redistribution attitude variable. Conducted exploratory analysis to examine patterns across generational cohorts. 1. Data and Variables : The analysis uses data from Rounds 9–11 of the European Social Survey. 2.Key variables include: Dependent variable
 (gincdif – attitudes toward government reducing income differences). 2.Independent variable: Universalism value index constructed from value items:ipeqopt, ipudrst, and phlppl. 
 
