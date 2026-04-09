@@ -46,7 +46,7 @@ We want to find answers to the following questions:
 | Mrat correction  |TR| Week 8|
 | Literature review |FST |week 8|
 | Data Visualization | All | Week 9 |
-                        
+|Final Analysis |ALL| Week 9 | Onwards|                     
 
 ## Progress Presentation
 
