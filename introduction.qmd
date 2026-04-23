@@ -2,8 +2,6 @@
 title: "A Generational Analysis of the Relationship Between Human Values and Political Attitudes in Europe (2018–2024)"
 ---
 
-<!-- You can also write your own headline structure. -->
-
 # Project Description
 
 *This project examines how personal values shape political attitudes across generations in Europe between 2018 and 2024. Using data from the European Social Survey (Rounds 9–11), the study investigates whether shifts in societal context—particularly the COVID-19 pandemic—have altered the relationship between individual value systems and political orientations. The analysis is grounded in the Schwartz Theory of Basic Human Values, which identifies ten fundamental human values that influence attitudes and behavior across cultures.
