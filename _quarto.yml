@@ -15,13 +15,14 @@ website:
     style: "docked"
     contents:
       - introduction.qmd
-      - sibahle_question 1.ipynb
+      - Literature Review.ipynb
+      - sibahle_question_1.ipynb
       - Q2_Tayaphon.ipynb
       - pelin_analysis.ipynb
       - Felix-Analysis.ipynb
-      - Sec_Universalism_Question_5.qmd
+      - Uyazi_Q5.ipynb
+      - Maria_Question_6.ipynb
       - conclusion.qmd
-      - dashboard.qmd
 
 format:
   html:
