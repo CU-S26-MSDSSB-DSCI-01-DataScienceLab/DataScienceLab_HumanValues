@@ -15,7 +15,7 @@ website:
     style: "docked"
     contents:
       - introduction.qmd
-      - Literature Review.ipynb
+      - literature_review.ipynb
       - sibahle_question_1.ipynb
       - Q2_Tayaphon.ipynb
       - pelin_analysis.ipynb

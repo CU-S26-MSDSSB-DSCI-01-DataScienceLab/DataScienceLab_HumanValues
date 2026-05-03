@@ -15,8 +15,8 @@ The analysis uses data from the European Social Survey (Rounds 9–11). We const
 This project is structured into several sections, each addressing a specific part of the analysis and research questions.
 
 
-- The [Literature Review](Literature Review.ipynb) provides the theoretical background based on Schwartz’s Theory of Basic Human Values and discusses previous empirical findings.
-- The empirical analysis is presented in dedicated sections, where we explore the relationship between human values and political attitudes using European Social Survey data.
+- The [Literature Review](literature_review.ipynb) provides the theoretical background based on Schwartz’s Theory of Basic Human Values and discusses previous empirical findings.
+- The empirical analysis is presented in dedicated sections (the research questions), where we explore the relationship between human values and political attitudes using European Social Survey data.
 - The [Conclusion](conclusion.qmd) summarizes the key findings and reflects on their implications for understanding political behavior in Europe.
 
 The Research Questions are:
