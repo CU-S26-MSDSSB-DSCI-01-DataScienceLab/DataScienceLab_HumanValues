@@ -31,61 +31,24 @@ We want to find answers to the following questions:
 
 6- To what extent does the correlation between human values and political attitudes vary between different European countries?
 
-#### Tasks
-
-*All team members should appear here with at least one task. If you plan ahead you can already now dradft tasks for the time after the progress presentation.*
-
-| Task                                      |         Who        | When |
-|-------------------------------------------|--------------------|------|
-| Exporting dataset from ESS website and creating presentation slides | YMM | Week 5 |
-| Cleaning data and create the columns      | YMM, TR | Week 6 |
-| Write executive summary for project page (Index.qmd) |	UD | Week  6 |
-| Analyzing                                 | All | Week 7 |
-| Identify ESS variables for Universalism and redistribution | UD | Week 7 |
-| Identify variables and analyze pre- vs post-pandemic changes in Conservation values and Political Trust | PK | Week 7 |
-| Mrat correction  |TR| Week 8|
-| Literature review |FST |week 8|
-| Data Visualization | All | Week 9 |
-|Final Analysis |ALL| Week 9 | Onwards| 
-| Project Consolidation and Final Presentation | All | Week 10 -11 |
-| Website Creation | Pelin| Week 11 |
-
-
 ## Progress Presentation
-
-*Writing this section is obligatory *before* the **progress**
-presentation! (You can delete this text in italics when done.)*
 
 #### Team Member Contributions
 
-*Briefly describe for each team member what hs been done since the proposal presentation. This can be a list like: "contributed to the data prepatation script, started the page for question 1 and wrote the outline of it, created a first descriptive visual about XYZ, configured GitHub pages such the draft website is live*
-
-*Team member 1*: 
 Maria created the presentation slides for the first presentation.
 Maria and Tayaphon: Uploaded Data, data exploration, cleaning missing values, and created new columns (generation, 10 dimensions of Human Values)
 
-*Team member 2*: 
 Tayaphon uploaded Data, did data exploration, cleaned missing values, created new columns (generation, 10 dimensions of Human Values), and corrected the scale to be centered.
 She examined exclusively Question 2 about the differences in political attitudes and value priorities across generational cohorts in the Pre and post-pandemic landscape.
 
-
-*Team member 3*: 
 Uyazi Dube: Prepared the executive summary for the project and identified the relevant variables in the European Social Survey dataset for analyzing the relationship between Universalism and support for income redistribution. Began constructing the Universalism value index and defined the redistribution attitude variable. Conducted exploratory analysis to examine patterns across generational cohorts. 1. Data and Variables : The analysis uses data from Rounds 9–11 of the European Social Survey. 2.Key variables include: Dependent variable
 (gincdif – attitudes toward government reducing income differences). 2.Independent variable: Universalism value index constructed from value items:ipeqopt, ipudrst, and phlppl. 
 
-Pelin Kimiz: Focused exclusively on Question 3 (COVID-19 and Value Change). Her contributions include: constructing the Conservation and Political Trust indices, identifying the data limitation in Round 11 (missing Conservation values), conducting independent t-tests to compare pre-pandemic (Round 9) and post-pandemic (Round 10/11) periods, interpreting the statistical results, and generating all visualizations (line plots for Conservation and Political Trust trends). Additionally, she structured the Jupyter notebook section for Question 3 with clear methodological explanations and findings, and prepared this progress summary.
+Pelin started the page for question 3 and wrote the outline of it, performed statistical tests, interpreted the results and created all visualizations for her question
 
 ...
 
-#### Tasks
-
-*Create a table with the tasks for the time until the final presentation.*
-
 ## Final Presentation
-
-*Writing this section is obligatory before the **final** presentation!
-(You can delete this text in italics when done.)*
-
 
 #### Team Member Contributions
 
@@ -95,15 +58,26 @@ Pelin Kimiz: Focused exclusively on Question 3 (COVID-19 and Value Change). Her 
 
 *Team member 2*: *Text*  
 
-*Team member 3*: *Text*  
+*Pelin Kımız*: Conducted the full analysis for Question 3, examining changes in Conservation values (Security, Conformity, Tradition) and Political Trust across ESS Rounds 9, 10, and 11. Performed statistical tests, interpreted the results, and created all visualizations for her question. Configured GitHub pages such the draft website is live and ensured consistent formatting across all pages.
 
 ...
 
 #### Tasks
 
-*Create a table with the tasks for the time until the final presentation.*
-
-
+| Task                                      |         Who        | When |
+|-------------------------------------------|--------------------|------|
+| Exporting dataset from ESS website and creating presentation slides | YMM | Week 5 |
+| Cleaning data and create the columns | YMM, TR | Week 6 |
+| Write executive summary for project page (Index.qmd) |	UD | Week  6 |
+| Analyzing | All | Week 7 |
+| Identify ESS variables for Universalism and redistribution | UD | Week 7 |
+| Identify variables and analyze pre- vs post-pandemic changes in Conservation values and Political Trust | PK | Week 7 |
+| Mrat correction  |TR| Week 8|
+| Literature review |FST |week 8|
+| Data Visualization | All | Week 9 |
+| Final Analysis |ALL| Week 9 | Onwards| 
+| Project Consolidation and Final Presentation | All | Week 10 -11 |
+| Website Creation | PK | Week 11 |
 
 ## Final note (Optional)
 
