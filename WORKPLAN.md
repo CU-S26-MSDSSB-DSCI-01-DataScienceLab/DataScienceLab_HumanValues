@@ -46,7 +46,10 @@ We want to find answers to the following questions:
 | Mrat correction  |TR| Week 8|
 | Literature review |FST |week 8|
 | Data Visualization | All | Week 9 |
-|Final Analysis |ALL| Week 9 | Onwards|                     
+|Final Analysis |ALL| Week 9 | Onwards| 
+| Project Consolidation and Final Presentation | All | Week 10 -11 |
+| Website Creation | Pelin| Week 11 |
+
 
 ## Progress Presentation
 
