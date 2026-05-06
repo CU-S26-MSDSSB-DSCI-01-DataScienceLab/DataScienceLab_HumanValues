@@ -35,16 +35,15 @@ We want to find answers to the following questions:
 
 #### Team Member Contributions
 
-Maria created the presentation slides for the first presentation.
+*Maria* created the presentation slides for the first presentation.
 Maria and Tayaphon: Uploaded Data, data exploration, cleaning missing values, and created new columns (generation, 10 dimensions of Human Values)
 
-Tayaphon uploaded Data, did data exploration, cleaned missing values, created new columns (generation, 10 dimensions of Human Values), and corrected the scale to be centered.
+*Tayaphon* uploaded Data, did data exploration, cleaned missing values, created new columns (generation, 10 dimensions of Human Values), and corrected the scale to be centered.
 She examined exclusively Question 2 about the differences in political attitudes and value priorities across generational cohorts in the Pre and post-pandemic landscape.
 
-Uyazi Dube: Prepared the executive summary for the project and identified the relevant variables in the European Social Survey dataset for analyzing the relationship between Universalism and support for income redistribution. Began constructing the Universalism value index and defined the redistribution attitude variable. Conducted exploratory analysis to examine patterns across generational cohorts. 1. Data and Variables : The analysis uses data from Rounds 9–11 of the European Social Survey. 2.Key variables include: Dependent variable
-(gincdif – attitudes toward government reducing income differences). 2.Independent variable: Universalism value index constructed from value items:ipeqopt, ipudrst, and phlppl. 
+*Uyazi Dube*: Prepared the executive summary for the project and identified the relevant variables in the European Social Survey dataset for analyzing the relationship between Universalism and support for income redistribution. Began constructing the Universalism value index and defined the redistribution attitude variable. Independent variable: Universalism value index constructed from value items:ipeqopt, ipudrst, and phlppl. 
 
-Pelin started the page for question 3 and wrote the outline of it, performed statistical tests, interpreted the results and created all visualizations for her question
+*Pelin* started the page for question 3 and wrote the outline of it, performed statistical tests, interpreted the results and created all visualizations for her question
 
 ...
 
@@ -56,7 +55,8 @@ Pelin started the page for question 3 and wrote the outline of it, performed sta
 
 *Team member 1*: *Text*  
 
-*Team member 2*: *Text*  
+*Uyazi Dube*: Conducted exploratory analysis to examine patterns across generational cohorts. 1. Data and Variables : The analysis uses data from Rounds 9–11 of the European Social Survey. 2.Key variables include: Dependent variable
+(gincdif – attitudes toward government reducing income differences) 
 
 *Pelin Kımız*: Conducted the full analysis for Question 3, examining changes in Conservation values (Security, Conformity, Tradition) and Political Trust across ESS Rounds 9, 10, and 11. Performed statistical tests, interpreted the results, and created all visualizations for her question. Configured GitHub pages such the draft website is live and ensured consistent formatting across all pages.
 
@@ -78,9 +78,12 @@ Pelin started the page for question 3 and wrote the outline of it, performed sta
 | Final Analysis |ALL| Week 9 | Onwards| 
 | Project Consolidation and Final Presentation | All | Week 10 -11 |
 | Website Creation | PK | Week 11 |
+|Final Presentation | ALL | Week 12 |
 
-## Final note (Optional)
+## Final note 
 
-*You can write final comments and reflections on what worked well and what not so well in your work plan.*
+Overall, our work plan was effective in providing structure and clear direction for the project. One of the main strengths was our ability to divide tasks early, which helped maintain progress and ensured that deadlines were met. Communication within the group was generally consistent, allowing us to share updates, resolve issues, and support each other when needed. This contributed to a collaborative working environment and helped us stay aligned with our objectives.
 
-*Once the project is graded, you are free to change or remove this page.*
+However, there were some challenges. At times, coordination could have been more efficient, particularly when integrating individual contributions into a cohesive final output. In some instances, differences in working pace and availability led to minor delays. Additionally, we could have benefited from more frequent check-ins to ensure stronger alignment throughout the process rather than towards the end.
+
+In future projects, we would aim to improve by setting more regular progress meetings, clarifying expectations earlier, and allowing additional time for final revisions. Overall, the experience was valuable, and we developed both our teamwork and project management skills.
