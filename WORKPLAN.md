@@ -43,8 +43,9 @@ She examined exclusively Question 2 about the differences in political attitudes
 
 *Uyazi Dube*: Prepared the executive summary for the project and identified the relevant variables in the European Social Survey dataset for analyzing the relationship between Universalism and support for income redistribution. Began constructing the Universalism value index and defined the redistribution attitude variable. Independent variable: Universalism value index constructed from value items:ipeqopt, ipudrst, and phlppl. 
 
-*Pelin* started the page for question 3 and wrote the outline of it, performed statistical tests, interpreted the results and created all visualizations for her question
-* Maria* Aided in consolidation of our final findings to make a cohesive story for our final powerpoint presentation as well and did the analysis for the value-attitude correlation between different European countries. 
+*Pelin* started the page for question 3 and wrote the outline of it, performed statistical tests, interpreted the results and created all visualizations for her question.
+
+*Maria* Aided in consolidation of our final findings to make a cohesive story for our final powerpoint presentation as well and did the analysis for the value-attitude correlation between different European countries. 
 ...
 
 ## Final Presentation
