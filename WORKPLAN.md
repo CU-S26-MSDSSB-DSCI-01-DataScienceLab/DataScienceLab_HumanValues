@@ -65,6 +65,7 @@ She examined exclusively Question 2 about the differences in political attitudes
 
 *Tayaphon Rodsai* prepared the dataset, including Scale Reversal, cleaned missing values, created new columns (generation, 10 dimensions of Human Values), and corrected the scale to be centered (MRAT), conducted the full analysis for Question 2, examining the differences in political attitudes and value priorities across generational cohorts in the Pre and post-pandemic landscape, and created all visualizations for her question.
 *Felix* contributed towards the planning and development of the presentation.
+*Maria* Aided in consolidation of our final findings to make a cohesive story for our final powerpoint presentation as well and did the analysis for the value-attitude correlation between different European countries.
 
 ...
 
