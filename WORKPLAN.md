@@ -45,7 +45,9 @@ She examined exclusively Question 2 about the differences in political attitudes
 
 *Pelin* started the page for question 3 and wrote the outline of it, performed statistical tests, interpreted the results and created all visualizations for her question.
 
-*Maria* Aided in consolidation of our final findings to make a cohesive story for our final powerpoint presentation as well and did the analysis for the value-attitude correlation between different European countries. 
+*Maria* Aided in consolidation of our final findings to make a cohesive story for our final powerpoint presentation as well and did the analysis for the value-attitude correlation between different European countries.
+
+*Felix* contributed towards developing a literature review that shows the perspectives of scholars pertaining to human values. This literature serves as an evidence base to also support the findings of the study. 
 ...
 
 ## Final Presentation
