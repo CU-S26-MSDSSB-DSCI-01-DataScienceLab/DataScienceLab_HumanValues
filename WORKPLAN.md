@@ -48,6 +48,8 @@ She examined exclusively Question 2 about the differences in political attitudes
 *Maria* Aided in consolidation of our final findings to make a cohesive story for our final powerpoint presentation as well and did the analysis for the value-attitude correlation between different European countries.
 
 *Felix* contributed towards developing a literature review that shows the perspectives of scholars pertaining to human values. This literature serves as an evidence base to also support the findings of the study. 
+Sibahle analysis of section 1 and laoding and looking and the data variables that i need to answer my section which is question 1
+
 ...
 
 ## Final Presentation
@@ -56,7 +58,7 @@ She examined exclusively Question 2 about the differences in political attitudes
 
 *Briefly describe for each team member what has been done.*
 
-*Team member 1*: *Text*  
+*Mabhuda Sibahle 1*: *I did question 1 where i was analysing to what extent do schwarts human values predict political attidutes. first i looked at the circle provided by schwarts i wanted to see if it does hold on real world data.*  
 
 *Uyazi Dube*: Conducted exploratory analysis to examine patterns across generational cohorts. 1. Data and Variables : The analysis uses data from Rounds 9–11 of the European Social Survey. 2.Key variables include: Dependent variable
 (gincdif – attitudes toward government reducing income differences) 
