@@ -60,6 +60,9 @@ She examined exclusively Question 2 about the differences in political attitudes
 
 *Pelin Kımız*: Conducted the full analysis for Question 3, examining changes in Conservation values (Security, Conformity, Tradition) and Political Trust across ESS Rounds 9, 10, and 11. Performed statistical tests, interpreted the results, and created all visualizations for her question. Configured GitHub pages such the draft website is live and ensured consistent formatting across all pages.
 
+*Tayaphon Rodsai* prepared the dataset, including Scale Reversal, cleaned missing values, created new columns (generation, 10 dimensions of Human Values), and corrected the scale to be centered (MRAT), conducted the full analysis for Question 2, examining the differences in political attitudes and value priorities across generational cohorts in the Pre and post-pandemic landscape, and created all visualizations for her question.
+
+
 ...
 
 #### Tasks
