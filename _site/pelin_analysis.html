@@ -110,6 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -253,11 +254,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>This analysis investigates whether the COVID-19 pandemic led to measurable changes in Conservation values (Security, Conformity, Tradition) and Political Trust in Europe. Using data from the European Social Survey (ESS), we examine three time points: Round 9 (2018) as the pre-pandemic baseline, Round 10 (2020/22) as the pandemic period, and Round 11 (2024) as the post-pandemic landscape.</p>
 <blockquote class="blockquote">
-<p><strong>Note on Data:</strong> The dataset uses MRAT-corrected (mean-centered) Schwartz value scores, which remove individual response style bias and allow reliable comparisons across rounds and generations. All three ESS rounds contain complete value data in this version of the dataset.</p>
+<p><strong>Note on Data:</strong> The dataset uses MRAT-corrected (mean-centered) Schwartz value scores, which remove individual response style bias and allow reliable comparisons across rounds and generations. Round 10 has reduced availability for Conservation value items (~61%), as documented in the data quality check below.</p>
 </blockquote>
 <section id="import-and-data-load" class="level2">
 <h2 class="anchored" data-anchor-id="import-and-data-load">Import and Data Load</h2>
-<div id="cell-import" class="cell" data-execution_count="8">
+<div id="cell-import" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -447,7 +448,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="index-construction-data-quality-check" class="level2">
 <h2 class="anchored" data-anchor-id="index-construction-data-quality-check">Index Construction &amp; Data Quality Check</h2>
-<div id="cell-index" class="cell" data-execution_count="9">
+<div id="cell-index" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Conservation Index from MRAT-corrected (centered) scores</span></span>
@@ -469,7 +470,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>quality_df <span class="op">=</span> pd.DataFrame(quality_data).T</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"--- Column Availability by ESS Round ---"</span>)</span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>display(quality_df)</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">-&gt; All value columns available across all three rounds."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">-&gt; Round 10 has reduced availability (~61%) for Conservation items."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>--- Column Availability by ESS Round ---</code></pre>
@@ -531,7 +532,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="statistical-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="statistical-analysis">Statistical Analysis</h2>
-<div id="cell-stats" class="cell" data-execution_count="10">
+<div id="cell-stats" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>r9 <span class="op">=</span> df[df[<span class="st">'essround'</span>] <span class="op">==</span> <span class="dv">9</span>]</span>
@@ -571,69 +572,62 @@ Political Trust R9 vs R10 p-value: 0.00018 (Significant)
 Political Trust R9 vs R11 p-value: 0.00002 (Significant)</code></pre>
 </div>
 </div>
+<div id="e0575264" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cohens_d(x, y):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    nx, ny <span class="op">=</span> <span class="bu">len</span>(x.dropna()), <span class="bu">len</span>(y.dropna())</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    pooled_std <span class="op">=</span> np.sqrt(((nx<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>x.dropna().std()<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (ny<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>y.dropna().std()<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> (nx<span class="op">+</span>ny<span class="op">-</span><span class="dv">2</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (x.dropna().mean() <span class="op">-</span> y.dropna().mean()) <span class="op">/</span> pooled_std</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"=== EFFECT SIZES (Cohen's d) ==="</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Conservation R9 vs R10: d = </span><span class="sc">{</span>cohens_d(r9[<span class="st">'Conservation'</span>], r10[<span class="st">'Conservation'</span>])<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Conservation R9 vs R11: d = </span><span class="sc">{</span>cohens_d(r9[<span class="st">'Conservation'</span>], r11[<span class="st">'Conservation'</span>])<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Political Trust R9 vs R10: d = </span><span class="sc">{</span>cohens_d(r9[<span class="st">'Political_Trust'</span>], r10[<span class="st">'Political_Trust'</span>])<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Political Trust R9 vs R11: d = </span><span class="sc">{</span>cohens_d(r9[<span class="st">'Political_Trust'</span>], r11[<span class="st">'Political_Trust'</span>])<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>=== EFFECT SIZES (Cohen's d) ===
+Conservation R9 vs R10: d = 0.061
+Conservation R9 vs R11: d = 0.026
+Political Trust R9 vs R10: d = 0.028
+Political Trust R9 vs R11: d = 0.034</code></pre>
+</div>
+</div>
 <p>The summary statistics and t-tests provide the following insights:</p>
 <p><strong>Conservation Values</strong></p>
 <p><em>R9 vs R10 (Pandemic Period):</em> Conservation scores declined from a pre-pandemic mean of 0.114 (R9) to 0.077 (R10) during the pandemic. This difference is statistically significant (p &lt; 0.001).</p>
 <p><em>R9 vs R11 (Long-Term):</em> By 2024, Conservation values partially recovered to a mean of 0.098, but remained below the pre-pandemic baseline. This difference is also statistically significant (p &lt; 0.001).</p>
 <p>The direction of change is counterintuitive: rather than driving Europeans toward greater security-seeking and conformity, the pandemic appears to have slightly loosened conservation-oriented value priorities.</p>
+<p>While both comparisons reach statistical significance due to the large sample size (n ≈ 136,000), the effect sizes are negligible (Cohen’s d = 0.061 for R9 vs R10; d = 0.026 for R9 vs R11). This indicates that although the shifts are real, they are very small in practical terms and should be interpreted with caution.</p>
 <p><strong>Political Trust</strong></p>
 <p><em>R9 vs R10 (Pandemic Period):</em> Trust in parliament dropped from a pre-pandemic mean of 4.99 (R9) to 4.70 (R10). This decline is statistically significant (p &lt; 0.001).</p>
 <p><em>R9 vs R11 (Long-Term):</em> By 2024, trust measured 4.65, remaining below both the pre-pandemic and pandemic-period levels. This difference is statistically significant (p &lt; 0.001).</p>
 <p>The pattern suggests that the pandemic functioned as a lasting trust-eroding event rather than a temporary disruption.</p>
+<p>Effect sizes for political trust are similarly small (Cohen’s d = 0.028 for R9 vs R10; d = 0.034 for R9 vs R11), suggesting that while the decline is statistically robust, the magnitude of change at the aggregate level is modest.</p>
 </section>
 <section id="visualization" class="level2">
 <h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
 <p><em>Figure 1 presents the generational trends in Conservation values across the three ESS rounds (R9: 2018, R10: 2020/22, R11: 2024). The MRAT-centered Conservation Index is plotted on the y-axis, with higher values indicating stronger prioritization of security, conformity, and tradition:</em></p>
-<div id="cell-viz" class="cell" data-execution_count="6">
+<div id="cell-viz" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gen_order <span class="op">=</span> [<span class="st">'Gen Z'</span>, <span class="st">'Millennials'</span>, <span class="st">'Gen X'</span>, <span class="st">'Boomers'</span>, <span class="st">'Silent Gen'</span>]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Graph 1: Conservation Trend by Generation (all 3 rounds)</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>sns.lineplot(</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df[df[<span class="st">'essround'</span>].isin([<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>])],</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'essround'</span>, y<span class="op">=</span><span class="st">'Conservation'</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'generation'</span>, marker<span class="op">=</span><span class="st">'o'</span>,</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    hue_order<span class="op">=</span>gen_order</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Conservation Values: Pre-Pandemic, Pandemic, and Post-Pandemic"</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>], [<span class="st">'R9 (2018)'</span>, <span class="st">'R10 (2020/22)'</span>, <span class="st">'R11 (2024)'</span>])</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Conservation Index (MRAT-centered)"</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"ESS Round"</span>)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="pelin_analysis_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Figure 1 reveals a clear and stable generational hierarchy across all three rounds. Silent Gen consistently scores highest on Conservation, followed by Millennials, Gen X, Boomers, and Gen Z (lowest). This ordering remains unchanged from 2018 to 2024.</p>
-<p>At the aggregate level (all generations combined), Conservation values show a modest decline from R9 to R10 followed by a partial recovery in R11.</p>
-<p>The findings confirm conventional expectations: older generations consistently prioritize Conservation values (security, conformity, and tradition) more highly than their younger counterparts. Gen Z and Millennials score lowest on Conservation throughout the 2018–2024 period. This generational hierarchy proves resilient across the pandemic, with no reversal or convergence observed.</p>
-<hr>
-<p><em>Figure 2 presents the generational trends in Political Trust across the same three rounds, measured on a 0–10 scale (higher values = greater trust in parliament):</em></p>
-<div id="596286c9" class="cell" data-execution_count="7">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graph 2: Political Trust Trend (all 3 rounds)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sns.lineplot(</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df[df[<span class="st">'essround'</span>].isin([<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>])],</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'essround'</span>, y<span class="op">=</span><span class="st">'Political_Trust'</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'generation'</span>, marker<span class="op">=</span><span class="st">'o'</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    hue_order<span class="op">=</span>gen_order</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Political Trust Flux (2018–2024)"</span>)</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>], [<span class="st">'R9 (2018)'</span>, <span class="st">'R10 (2020/22)'</span>, <span class="st">'R11 (2024)'</span>])</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Trust in Parliament (0-10)"</span>)</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"ESS Round"</span>)</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>gen_order <span class="op">=</span> [<span class="st">'Gen Z'</span>, <span class="st">'Millennials'</span>, <span class="st">'Gen X'</span>, <span class="st">'Boomers'</span>, <span class="st">'Silent Gen'</span>]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Graph 1: Conservation Trend by Generation (all 3 rounds)</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>sns.lineplot(</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df[df[<span class="st">'essround'</span>].isin([<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>])],</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'essround'</span>, y<span class="op">=</span><span class="st">'Conservation'</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'generation'</span>, marker<span class="op">=</span><span class="st">'o'</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    hue_order<span class="op">=</span>gen_order</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Conservation Values: Pre-Pandemic, Pandemic, and Post-Pandemic"</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>], [<span class="st">'R9 (2018)'</span>, <span class="st">'R10 (2020/22)'</span>, <span class="st">'R11 (2024)'</span>])</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Conservation Index (MRAT-centered)"</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"ESS Round"</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -643,12 +637,42 @@ Political Trust R9 vs R11 p-value: 0.00002 (Significant)</code></pre>
 </div>
 </div>
 </div>
+<p>Figure 1 reveals a clear and stable generational hierarchy across all three rounds. Silent Gen consistently scores highest on Conservation, followed by Boomers, Gen X, Millennials, and Gen Z (lowest). This ordering remains unchanged from 2018 to 2024.</p>
+<p>At the aggregate level (all generations combined), Conservation values show a modest decline from R9 to R10 followed by a partial recovery in R11.</p>
+<p>The findings confirm conventional expectations: older generations consistently prioritize Conservation values (security, conformity, and tradition) more highly than their younger counterparts. Gen Z and Millennials score lowest on Conservation throughout the 2018–2024 period. This generational hierarchy proves resilient across the pandemic, with no reversal or convergence observed.</p>
+<p><em>Figure 2 presents the generational trends in Political Trust across the same three rounds, measured on a 0–10 scale (higher values = greater trust in parliament):</em></p>
+<div id="596286c9" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graph 2: Political Trust Trend (all 3 rounds)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>sns.lineplot(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df[df[<span class="st">'essround'</span>].isin([<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>])],</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'essround'</span>, y<span class="op">=</span><span class="st">'Political_Trust'</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'generation'</span>, marker<span class="op">=</span><span class="st">'o'</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    hue_order<span class="op">=</span>gen_order</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Political Trust Flux (2018–2024)"</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>], [<span class="st">'R9 (2018)'</span>, <span class="st">'R10 (2020/22)'</span>, <span class="st">'R11 (2024)'</span>])</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Trust in Parliament (0-10)"</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"ESS Round"</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pelin_analysis_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 <p>Figure 2 shows a sustained decline in political trust across most generations, but with notable differences in magnitude, timing, and trajectory.</p>
-<p>Gen Z enters the period with the highest trust and experiences the steepest decline (to approximately 5.8 by R10), with only a negligible recovery by R11.</p>
-<p>Silent Gen begins with the second-highest trust, increases slightly in R10, then declines by R11.</p>
-<p>Millennials start at a similar level to Silent Gen, drop to 4.8 in R10, and partially recover to 4.9 by R11.</p>
-<p>Gen X declines steadily from 4.6 (R9) to 4.2 (R10) and further to 4.0 (R11), becoming the lowest-trust group by the end of the period.*</p>
-<p>Boomers begin with the lowest trust (4.3 in R9), increase slightly to 4.4 in R10, then decline to 4.1 by R11.</p>
+<p>Gen Z enters the period with the highest trust (7.57) and experiences the steepest decline (to 5.59 by R10), with a slight recovery to 5.85 by R11.</p>
+<p>Silent Gen begins with the second-highest trust (5.42), increases to 5.92 in R10, then declines to 5.51 by R11.</p>
+<p>Millennials start at a similar level to Silent Gen (5.39), drop to 4.48 in R10, and partially recover to 4.71 by R11.</p>
+<p>Gen X declines steadily from 4.71 (R9) to 4.32 (R10) and further to 4.25 (R11).</p>
+<p>Boomers begin with the lowest trust (4.37 in R9), increase slightly to 4.55 in R10, then decline to 4.33 by R11.</p>
 <p>The pandemic appears to have eroded political trust across all age groups, though not uniformly. Gen Z experienced the largest absolute decline, while Boomers showed a temporary increase during the pandemic before declining. Trust levels remain divergent by R11, with Gen X falling below Boomers.</p>
 </section>
 <section id="conclusion" class="level2">
@@ -660,19 +684,21 @@ Political Trust R9 vs R11 p-value: 0.00002 (Significant)</code></pre>
 <p>The modest aggregate decline in Conservation values, combined with this stable generational hierarchy, suggests that while the pandemic may have slightly loosened conservation-oriented priorities overall, deep-seated generational value differences; with older generations placing greater emphasis on security, conformity, and tradition; remained largely resilient to the shock.</p>
 <p><strong>Political Trust</strong></p>
 <p>Political trust shows a clear and significant decline.</p>
-<p>Figure 2 reveals that generational trajectories differ substantially. Gen Z starts highest (7.5), declines most sharply (to 5.8), and recovers only marginally by R11 (5.9). Silent Gen and Millennials begin at similar levels (≈5.4), but while Millennials drop immediately and partially recover, Silent Gen increases slightly in R10 before declining to 5.0. Boomers increase temporarily in R10 (4.3 → 4.4) before falling to 4.1, whereas Gen X declines steadily to become the lowest-trust group by R11 (4.0). Trust levels do not converge by 2024.</p>
+<p>Figure 2 reveals that generational trajectories differ substantially. Gen Z starts highest (7.57), declines most sharply (to 5.59 in R10), and partially recovers to 5.85 by R11. Silent Gen and Millennials begin at similar levels (≈5.4), but while Millennials drop immediately and partially recover, Silent Gen increases to 5.92 in R10 before declining to 5.51. Boomers increase temporarily in R10 (4.37 → 4.55) before falling to 4.33, whereas Gen X declines steadily to become the lowest-trust group by R11 (4.25). Trust levels do not converge by 2024.</p>
 <p>The pandemic eroded political trust across all age groups, but younger generations, who entered the period with higher trust, experienced the largest absolute declines. By 2024, trust levels across generations had largely converged downward.</p>
 <p><strong>Summary</strong></p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 22%">
 <col style="width: 34%">
-<col style="width: 42%">
+<col style="width: 22%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Dimension</th>
 <th>Aggregate Change</th>
+<th>Effect Size</th>
 <th>Generational Pattern</th>
 </tr>
 </thead>
@@ -680,16 +706,19 @@ Political Trust R9 vs R11 p-value: 0.00002 (Significant)</code></pre>
 <tr class="odd">
 <td><strong>Conservation</strong></td>
 <td>Modest, significant decline (R9→R10) followed by partial recovery (R11)</td>
+<td>Negligible (d ≤ 0.061)</td>
 <td>Stable hierarchy: Silent Gen highest, Gen Z lowest, older generations more conservation, oriented</td>
 </tr>
 <tr class="even">
 <td><strong>Political Trust</strong></td>
 <td>Clear and significant decline</td>
+<td>Negligible (d ≤ 0.034)</td>
 <td>Gen Z declines most sharply; Boomers and Silent Gen show temporary R10 increases; Gen X becomes lowest by R11</td>
 </tr>
 </tbody>
 </table>
 <p>Together, these findings indicate that while the pandemic modestly loosened conservation-oriented value priorities and durably eroded institutional trust in Europe, deep-seated generational differences, with older generations prioritizing conservation values more highly and younger generations experiencing greater trust erosion, were central features of the crisis response.</p>
+<p>These findings partially diverge from Bonetto et al.&nbsp;(2021), who reported a short-term rise in Conservation values during the first French lockdown. The difference likely reflects the broader geographic scope and longer time window of the present study: aggregate ESS data spanning all of Europe and multiple pandemic phases may capture a recovery or reversal not visible in single-country, early-pandemic snapshots. Similarly, Vecchione (2022) found that income loss during the pandemic was associated with rising Conservation in Italy; suggesting that individual-level economic exposure, rather than the pandemic shock itself, may be the key driver. These nuances underscore the importance of geographic and temporal context when interpreting value change during collective crises.</p>
 
 
 </section>
@@ -768,7 +797,7 @@ Political Trust R9 vs R11 p-value: 0.00002 (Significant)</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/CU-S26-MSDSSB-DSCI-01-DataScienceLab\.github\.io\/DataScienceLab_HumanValues\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

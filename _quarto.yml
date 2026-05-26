@@ -29,3 +29,4 @@ format:
     theme: cosmo       # You can choose other themes https://quarto.org/docs/output-formats/html-themes.html
     toc: true          # Show table of contents on all pages
     code-fold: true    # Fold code chunks by default 
+    css: styles.css

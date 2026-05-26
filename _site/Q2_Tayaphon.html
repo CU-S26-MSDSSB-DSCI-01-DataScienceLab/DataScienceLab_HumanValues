@@ -109,7 +109,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -222,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#key-finding" id="toc-key-finding" class="nav-link active" data-scroll-target="#key-finding">Key Finding</a></li>
   <li><a href="#what-this-analysis-shows" id="toc-what-this-analysis-shows" class="nav-link" data-scroll-target="#what-this-analysis-shows">What This Analysis Shows</a></li>
-  <li><a href="#part-0-data-timeline-overview" id="toc-part-0-data-timeline-overview" class="nav-link" data-scroll-target="#part-0-data-timeline-overview">Part 0: Data &amp; Timeline Overview</a></li>
+  <li><a href="#part-0-data-and-timeline-overview" id="toc-part-0-data-and-timeline-overview" class="nav-link" data-scroll-target="#part-0-data-and-timeline-overview">Part 0: Data and Timeline Overview</a></li>
   <li><a href="#part-1-the-generational-political-divide" id="toc-part-1-the-generational-political-divide" class="nav-link" data-scroll-target="#part-1-the-generational-political-divide">PART 1: The Generational Political Divide</a></li>
   <li><a href="#part-2-the-pandemic-shift" id="toc-part-2-the-pandemic-shift" class="nav-link" data-scroll-target="#part-2-the-pandemic-shift">PART 2: The Pandemic Shift</a>
   <ul class="collapse">
@@ -234,10 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#part-4-the-pandemic-effect-on-politically-relevant-values" id="toc-part-4-the-pandemic-effect-on-politically-relevant-values" class="nav-link" data-scroll-target="#part-4-the-pandemic-effect-on-politically-relevant-values">PART 4: The Pandemic Effect on Politically Relevant Values</a>
   <ul class="collapse">
-  <li><a href="#part-5-statistical-validation" id="toc-part-5-statistical-validation" class="nav-link" data-scroll-target="#part-5-statistical-validation">Part 5: Statistical Validation</a>
-  <ul class="collapse">
-  <li><a href="#are-these-generational-shifts-significant" id="toc-are-these-generational-shifts-significant" class="nav-link" data-scroll-target="#are-these-generational-shifts-significant">Are these generational shifts significant?</a></li>
-  </ul></li>
+  <li><a href="#part-5-statistical-validation" id="toc-part-5-statistical-validation" class="nav-link" data-scroll-target="#part-5-statistical-validation">Part 5: Statistical Validation</a></li>
   <li><a href="#part-6-summary-of-findings" id="toc-part-6-summary-of-findings" class="nav-link" data-scroll-target="#part-6-summary-of-findings">PART 6: Summary of Findings</a></li>
   </ul></li>
   </ul>
@@ -265,31 +292,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This analysis investigates how <strong>political attitudes and human value priorities differ across generational cohorts</strong> in Europe, with a specific focus on the impact of the COVID-19 pandemic. Using data from the European Social Survey (ESS) across three critical periods: - <strong>Pre-Pandemic (2018-2019, Round 9)</strong> - <strong>During Pandemic (2020-2022, Round 10)</strong> - <strong>Post-Pandemic (2023-2024, Round 11)</strong></p>
-<p>According to Question 1, it established the general value-to-politics relationship across Europe:</p>
+<p>This analysis investigates how <strong>political attitudes and human value priorities differ across generational cohorts</strong> in Europe, with a specific focus on the impact of the COVID-19 pandemic. Using data from the European Social Survey (ESS) across three critical periods:</p>
+<ul>
+<li><strong>Pre-Pandemic (2018–2019, Round 9)</strong></li>
+<li><strong>During Pandemic (2020–2022, Round 10)</strong></li>
+<li><strong>Post-Pandemic (2023–2024, Round 11)</strong></li>
+</ul>
+<p>Question 1 established the general value-to-politics relationship across Europe:</p>
 <ul>
 <li><strong>Universalism</strong> is the strongest predictor of <strong>left-wing</strong> placement.</li>
 <li><strong>Tradition, Security, and Conformity</strong> predict <strong>right-wing</strong> placement.</li>
 </ul>
-<p>Therefore, Question 2 applies that result to generations and the pandemic landscape. We focuses on the politically relevant values identified in Question 1:</p>
+<p>Question 2 applies those findings to generational cohorts and the pandemic landscape. We focus on the two politically relevant value pathways identified in Question 1:</p>
 <ol type="1">
-<li><strong>Universalism</strong> as the left-wing value pathway.</li>
-<li><strong>Conservation Index</strong> = mean of Tradition, Security, and Conformity as the right-wing value pathway.</li>
+<li><strong>Universalism</strong> — the left-wing value pathway.</li>
+<li><strong>Conservation Index</strong> = mean of Tradition, Security, and Conformity — the right-wing value pathway.</li>
 </ol>
 <section id="key-finding" class="level3">
 <h3 class="anchored" data-anchor-id="key-finding">Key Finding</h3>
-<p><strong>Generational divides in political ideology are rooted in fundamentally different human value priorities.</strong> The pandemic acted as a polarizing catalyst—while younger generations (Gen Z) temporarily shifted left but returned to baseline, <strong>older generations (Boomers &amp; Silent Gen) experienced a sustained rightward drift</strong>, driven by heightened security concerns. This asymmetric response widened the generational gap from 0.21 points (2018) to 0.38 points (2024).</p>
+<p><strong>Generational divides in political ideology are rooted in fundamentally different human value priorities.</strong> The pandemic acted as a polarizing catalyst — while younger generations (Gen Z) temporarily shifted left but returned to baseline, <strong>older generations (Boomers and the Silent Generation) experienced a sustained rightward drift</strong>, driven by heightened Security concerns.This asymmetric response widened the generational political gap from 0.21 points (2018) to 0.38 points (2024).</p>
 </section>
 <section id="what-this-analysis-shows" class="level3">
 <h3 class="anchored" data-anchor-id="what-this-analysis-shows">What This Analysis Shows</h3>
+<p>Each section below provides a layer of evidence for the key finding above:</p>
 <ol type="1">
-<li><strong>Political attitudes:</strong> Do generations differ on the left-right political scale?</li>
-<li><strong>Pandemic shift:</strong> Did the generational political gap change from pre-pandemic to post-pandemic?</li>
-<li><strong>Value bridge from Question 1:</strong> Do generations differ in Universalism and Conservation priorities?</li>
-<li><strong>Pandemic value shifts:</strong> Did these politically relevant values change across ESS rounds?</li>
-<li><strong>Validation:</strong> Are the generational and round differences statistically meaningful?</li>
+<li><strong>Part 1 — Political attitudes:</strong> The baseline generational gradient in left-right placement.</li>
+<li><strong>Part 2 — Pandemic shift:</strong> How the generational gap widened asymmetrically across ESS rounds.</li>
+<li><strong>Part 3 — Value bridge from Question 1:</strong> The value-level explanation for why generations differ politically.</li>
+<li><strong>Part 4 — Pandemic value shifts:</strong> How the two politically relevant value pathways moved before, during, and after the pandemic.</li>
+<li><strong>Part 5 — Statistical validation:</strong> Formal confirmation that these shifts are not due to random chance.</li>
 </ol>
-<div id="dee72832" class="cell" data-execution_count="2">
+<div id="dee72832" class="cell" data-execution_count="31">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -309,10 +342,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="part-0-data-timeline-overview" class="level1">
-<h1>Part 0: Data &amp; Timeline Overview</h1>
-<p>How many respondents from each generation did we survey across the three ESS rounds?</p>
-<div id="2b63bbb5" class="cell" data-execution_count="3">
+<section id="part-0-data-and-timeline-overview" class="level1">
+<h1>Part 0: Data and Timeline Overview</h1>
+<p>The analysis draws on <strong>136,454 respondents</strong> across 33 European countries, distributed across three ESS rounds. This cross-period design is what allows us to isolate the pandemic’s effect: Round 9 establishes the pre-pandemic baseline, Round 10 captures the crisis period,and Round 11 reveals whether the shifts were temporary or lasting.</p>
+<p>The table below confirms that each generation is represented in meaningful numbers across all three rounds, providing the statistical power needed to detect the generational asymmetry described in the key finding.</p>
+<div id="2b63bbb5" class="cell" data-execution_count="32">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the distribution of generations across ESS rounds</span></span>
@@ -320,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(counts)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span> <span class="op">+</span> <span class="st">"="</span><span class="op">*</span><span class="dv">80</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"PART 0: Dataset Overview &amp; Data Quality Check"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"PART 0: Dataset Overview and Data Quality Check"</span>)</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span><span class="op">*</span><span class="dv">80</span>)</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Total respondents</span></span>
@@ -347,7 +381,7 @@ essround
 11            13186  11690   4753         9514        3200
 
 ================================================================================
-PART 0: Dataset Overview &amp; Data Quality Check
+PART 0: Dataset Overview and Data Quality Check
 ================================================================================
 
 ✓ Total respondents: 136,454
@@ -360,7 +394,7 @@ PART 0: Dataset Overview &amp; Data Quality Check
 <section id="part-1-the-generational-political-divide" class="level1">
 <h1>PART 1: The Generational Political Divide</h1>
 <p>On the ESS scale, 0 = furthest Left (progressive), 10 = furthest Right (conservative), and 5 = exact center.</p>
-<div id="ee638004" class="cell" data-execution_count="4">
+<div id="ee638004" class="cell" data-execution_count="33">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the order and a specific color for each generation</span></span>
@@ -431,15 +465,20 @@ Name: lrscale, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<p>The graph shows; - Gen Z (4.91) is slightly left of the political center. - Millennials &amp; Boomers (4.97 - 4.99) are very close to the center. - Gen X &amp; Silent Gen (5.09 - 5.25) lean slightly to the right.</p>
-<p>This supports a modest generational gradient, but the differences are small. The stronger evidence for the research question comes from the next graph, which separates the ESS rounds.</p>
+<p>This figure establishes the baseline generational gradient in political self-placement that underlies the key finding. As expected, younger cohorts fall to the left of the political centre and older cohorts to the right — though at this aggregate level, the differences appear modest:</p>
+<ul>
+<li><strong>Gen Z (4.91)</strong> sits slightly left of centre.</li>
+<li><strong>Millennials and Boomers (4.97–4.99)</strong> cluster near the midpoint.</li>
+<li><strong>Gen X and the Silent Generation (5.09–5.25)</strong> lean slightly right.</li>
+</ul>
+<p>These averages compress a more dynamic story. Pooling all three ESS rounds into a single mean obscures the pandemic’s effect on each cohort’s trajectory. The critical evidence for the widening generational gap emerges only when the data are separated by period — which is the focus of Part 2.</p>
 </section>
 <section id="part-2-the-pandemic-shift" class="level1">
 <h1>PART 2: The Pandemic Shift</h1>
 <section id="how-did-covid-19-change-generational-political-attitudes" class="level2">
 <h2 class="anchored" data-anchor-id="how-did-covid-19-change-generational-political-attitudes">How did COVID-19 change generational political attitudes?</h2>
 <p>We now compare the same generations across three critical time periods. This reveals whether the pandemic simply froze attitudes in place, or if it fundamentally shifted how generations think about politics.</p>
-<div id="ef066894" class="cell" data-execution_count="5">
+<div id="ef066894" class="cell" data-execution_count="34">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="dv">6</span>))</span>
@@ -478,28 +517,22 @@ Name: lrscale, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<p>Key Insights from the Graph: - <strong>Gen Z temporary leftward movement:</strong> Gen Z moves left during Round 10, then returns close to its Round 9 position by Round 11. This suggests a temporary pandemic-period shift rather than a lasting ideological transformation.</p>
+<p>Figure 2 provides the central visual evidence for the asymmetric pandemic response described in the key finding. The trajectories confirm that the pandemic was not a uniform political shock:</p>
 <ul>
-<li><p><strong>Older-cohort rightward movement:</strong> Older cohorts, especially the Silent Generation and Boomers, are more right-leaning after the pandemic than before it.</p></li>
-<li><p><strong>Widening gap:</strong> The post-pandemic generational gap appears wider because younger cohorts return close to baseline while older cohorts move further right. This sets up the next question: <strong>which human values are linked to left-right political placement?</strong></p></li>
+<li><strong>Gen Z’s temporary leftward shift:</strong> Gen Z moved left during Round 10, consistent with the literature on crisis-driven progressive sentiment among younger cohorts. By Round 11, however, it had returned close to its pre-pandemic baseline — a temporary perturbation with no lasting ideological effect.</li>
+<li><strong>Older cohorts’ sustained rightward drift:</strong> Boomers and the Silent Generation shifted right during the pandemic and continued moving right in Round 11, with no equivalent reversal. This sustained shift — not the youth movement — is what drove the widening gap.</li>
+<li><strong>The widening gap:</strong> Because younger cohorts returned to baseline while older cohorts did not, the post-pandemic generational spread is wider than the pre-pandemic one, consistent with the 0.21 → 0.38 point increase stated in the key finding.</li>
 </ul>
+<p>The mechanism behind this asymmetry — why older cohorts responded more intensely and in the opposite direction — lies in the value priorities examined in Part 3.</p>
 </section>
 </section>
 <section id="part-3-politically-relevant-human-values-connecting-to-question-1" class="level1">
 <h1>PART 3: Politically Relevant Human Values (connecting to question 1)</h1>
-<p>Question 1 showed that human values are not politically neutral. <strong>Universalism</strong> predicts left-wing placement, while the conservation-oriented values <strong>Tradition, Security, and Conformity</strong> predict right-wing placement.</p>
-<p>For Question 2, the key question becomes:</p>
-<blockquote class="blockquote">
-<p>Are these politically relevant values distributed differently across generations?</p>
-</blockquote>
-<p>To keep the story focused, we create a <strong>Conservation Index</strong> using the three right-wing predictors from Question 1:</p>
-<p>[ ext{Conservation Index} =  rac{ ext{Tradition} + ext{Security} + ext{Conformity}}{3} ]</p>
-<p>This gives us a clean comparison between:</p>
-<ul>
-<li><strong>Universalism</strong> = left-wing value pathway</li>
-<li><strong>Conservation Index</strong> = right-wing value pathway</li>
-</ul>
-<div id="eee8ee3c" class="cell" data-execution_count="13">
+<p>Question 1 established that human values are not politically neutral: <strong>Universalism</strong> predicts left-wing placement, while the <strong>Conservation triad</strong> — Tradition, Security, and Conformity — predicts right-wing placement. Part 3 uses these two value pathways to explain <em>why</em> the generational political gradient exists.</p>
+<p>The logic is straightforward: if older cohorts consistently score higher on Conservation values, and if Conservation values predict right-wing placement, then the value structure provides the mechanistic link between the demographic pattern in Part 1 and the pandemic trajectories in Part 2. To keep the comparison clean, the three right-wing predictors from Question 1 are combined into a single <strong>Conservation Index</strong>:</p>
+<p><span class="math display">\[\text{Conservation Index} = \frac{\text{Tradition} + \text{Security} + \text{Conformity}}{3}\]</span></p>
+<p>This gives us a direct two-pathway comparison: - <strong>Universalism</strong> — left-wing value pathway - <strong>Conservation Index</strong> — right-wing value pathway</p>
+<div id="eee8ee3c" class="cell" data-execution_count="35">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generation order used consistently across plots</span></span>
@@ -609,7 +642,7 @@ Name: lrscale, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="1630ebf2" class="cell" data-execution_count="14">
+<div id="1630ebf2" class="cell" data-execution_count="36">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>value_by_gen <span class="op">=</span> (</span>
@@ -657,16 +690,15 @@ Name: lrscale, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<p>This figure connects Question 2 to Question 1 as follow;</p>
+<p>This Figure confirms that the generational value structure is consistent with the political gradient documented in Part 1. Universalism is positive across all cohorts — a shared European baseline of concern for equality, tolerance, and the environment. The divergence lies entirely in the <strong>Conservation Index</strong>:</p>
 <ul>
-<li><p>The blue bars show <strong>Universalism</strong>. It is positive across all generations, meaning all cohorts still value equality, tolerance, and concern for others.</p></li>
-<li><p>The orange bars show the <strong>Conservation Index</strong>, which combines Tradition, Security, and Conformity. This is where the generational gap is clearest.</p></li>
-<li><p><strong>Gen Z and Millennials score below the baseline on Conservation</strong>, while <strong>Boomers and the Silent Generation score much higher</strong>.</p></li>
+<li><p><strong>Gen Z and Millennials</strong> score below the baseline on Conservation, consistent with their left-of-centre political placement.</p></li>
+<li><p><strong>Boomers and the Silent Generation</strong> score substantially above the baseline, providing the value-level explanation for their rightward position on the political scale.</p></li>
 </ul>
-<p>This helps explain why older cohorts lean more right politically: they place stronger priority on values linked to order, security, tradition, and rule-following.</p>
+<p>This directly applies Question 1’s finding to the generational dimension of Question 2.</p>
 <section id="whole-picture-of-human-values-and-generation" class="level3">
 <h3 class="anchored" data-anchor-id="whole-picture-of-human-values-and-generation">Whole picture of Human values and generation</h3>
-<div id="c7bdea81" class="cell" data-execution_count="15">
+<div id="c7bdea81" class="cell" data-execution_count="37">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare column names and create clean labels</span></span>
@@ -723,18 +755,18 @@ Name: lrscale, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<p><strong>Key Insights from the Value Profile:</strong></p>
+<p>This situates the two politically relevant pathways within the full ten-value circumplex, confirming that the generational divide reflects a coherent ideological structure rather than isolated differences on one or two items.</p>
 <ul>
-<li><p><strong>The Conservative Drivers (Tradition &amp; Security):</strong> Look at the bottom-right of the chart (Tradition, Conformity, Security). The lines for older generations (Boomers &amp; Silent Gen) stretch furthest outward, while Gen Z shrinks inward below the baseline. This prioritization of maintaining traditional customs and ensuring safety is the fundamental root cause driving older generations toward the political Right (Conservatism).</p></li>
-<li><p><strong>The Progressive Drivers (Stimulation &amp; Self-Direction):</strong> Conversely, looking at the left side of the chart (Stimulation, Hedonism), Gen Z spikes far beyond any other generation. This deep desire for novelty, excitement, and autonomy is the engine driving the youth toward the progressive Left.</p></li>
-<li><p><strong>The Universal Common Ground:</strong> Despite extreme political polarization, there is one area where everyone agrees: the top of the chart (Universalism &amp; Benevolence). Every single generation scores positively here. This shows that deep down, Europeans across all age groups still view equality, helping others, and caring for the environment as shared, foundational societal values.</p></li>
+<li><p><strong>The Conservative Drivers (Tradition, Conformity, Security):</strong> Lines for older generations expand outward in this region of the chart, while Gen Z contracts inward below the baseline. This is the value-level foundation for the rightward drift of older cohorts documented in Part 2.</p></li>
+<li><p><strong>The Progressive Drivers (Stimulation, Self-Direction):</strong> Gen Z spikes outward here beyond any other cohort — consistent with its slightly left-of-centre political placement and its temporary pandemic-period shift toward progressive politics.</p></li>
+<li><p><strong>The Shared Common Ground (Universalism, Benevolence):</strong> Every generation scores positively here. This universal floor of concern for others and the environment coexists with — and does not cancel out — the deep generational divergence on Conservation values.</p></li>
 </ul>
 </section>
 </section>
 <section id="part-4-the-pandemic-effect-on-politically-relevant-values" class="level1">
 <h1>PART 4: The Pandemic Effect on Politically Relevant Values</h1>
-<p>In this section, we will track the trajectories of two contrasting values: - <strong>Universalism</strong> shows whether the left-wing value pathway changed. - <strong>Conservation Index</strong> shows whether the right-wing value pathway changed.</p>
-<div id="c69f36fd" class="cell">
+<p>Part 4 tracks the two value pathways across the three ESS waves, providing the temporal evidence for the pandemic’s polarizing role described in the key finding. If the sustained rightward drift of older cohorts is driven by heightened Security concerns, this should be visible as a rising Conservation Index specifically among Boomers and the Silent Generation — while Gen Z and Millennials remain below or near the baseline throughout. The data confirm exactly this pattern.</p>
+<div id="c69f36fd" class="cell" data-execution_count="38">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>period_value <span class="op">=</span> (</span>
@@ -852,18 +884,15 @@ Name: lrscale, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<p>This figure tracks the two value pathways identified from Question 1: <strong>Universalism</strong> as the left-wing predictor, and the <strong>Conservation Index</strong> as the right-wing predictor.</p>
+<p>This Figure confirms the pandemic’s asymmetric effect at the value level, providing the mechanistic evidence that connects the political trajectories in Part 2 to the underlying value structure established in Part 3.</p>
 <ul>
-<li><p><strong>Universalism declines during the pandemic period</strong> for all generations, then partly recovers after the pandemic. This suggests a temporary weakening of outward-looking values such as equality, tolerance, and concern for others.</p></li>
-<li><p>The <strong>Conservation Index is much more generationally divided</strong>. Gen Z and Millennials remain below the baseline, while Boomers and the Silent Generation remain clearly above it.</p></li>
-<li><p>After the pandemic, Conservation increases slightly across most generations, especially among older cohorts. Since Conservation values predict right-wing placement, this helps explain why older cohorts remain more right-leaning in the post-pandemic landscape.</p></li>
+<li><p><strong>Universalism</strong> declined across all generations during Round 10 — a temporary inward turn away from outward-looking values under crisis conditions — before partially recovering in Round 11. This pattern is consistent across cohorts, confirming that the pandemic’s dampening effect on Universalism was largely symmetric and transient.</p></li>
+<li><p><strong>The Conservation Index</strong> tells a different and more generationally divided story. Gen Z and Millennials remained below the baseline throughout all three rounds. Boomers and the Silent Generation, by contrast, showed a sustained upward trend, with Conservation priorities continuing to rise even after the pandemic. Since Conservation values predict right-wing placement, this sustained increase is the value-level mechanism behind the older cohorts’ lasting rightward drift documented in Part 2.</p></li>
 </ul>
 <section id="part-5-statistical-validation" class="level2">
 <h2 class="anchored" data-anchor-id="part-5-statistical-validation">Part 5: Statistical Validation</h2>
-<section id="are-these-generational-shifts-significant" class="level3">
-<h3 class="anchored" data-anchor-id="are-these-generational-shifts-significant">Are these generational shifts significant?</h3>
-<p>While our visual analysis in Part 4 shows clear trends, it is essential to verify if these shifts are statistically significant. In this section, we perform statistical testing to confirm that the changes in <strong>Security</strong> and <strong>Universalism</strong> across ESS rounds are not due to random chance.</p>
-<div id="2081b63a" class="cell" data-execution_count="9">
+<p>The patterns documented in Parts 1 through 4 are consistent with the key finding stated at the outset. Part 5 establishes that these patterns are statistically robust — not artifacts of sampling variation or random noise. A <strong>two-way ANOVA</strong> tests whether generational differences in Security values, and their changes across ESS rounds, are statistically significant, and whether the pandemic affected different generations differently (the interaction effect).</p>
+<div id="2081b63a" class="cell" data-execution_count="39">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -875,7 +904,7 @@ Name: lrscale, dtype: float64</code></pre>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>anova_table <span class="op">=</span> sm.stats.anova_lm(model, typ<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="3df9eb3a" class="cell" data-execution_count="10">
+<div id="3df9eb3a" class="cell" data-execution_count="40">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract p-values</span></span>
@@ -887,28 +916,28 @@ Name: lrscale, dtype: float64</code></pre>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>p_essround <span class="op">=</span> anova_table.loc[<span class="st">'C(essround)'</span>, <span class="st">'PR(&gt;F)'</span>]</span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>p_interaction <span class="op">=</span> anova_table.loc[<span class="st">'C(generation):C(essround)'</span>, <span class="st">'PR(&gt;F)'</span>]</span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">1️⃣ Generation Effect: p = </span><span class="sc">{</span>p_generation<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">1️ Generation Effect: p = </span><span class="sc">{</span>p_generation<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> p_generation <span class="op">&lt;</span> <span class="fl">0.05</span>:</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"   ✅ SIGNIFICANT - Generations differ on Security (not random)"</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"    SIGNIFICANT - Generations differ on Security (not random)"</span>)</span>
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"   ❌ NOT significant"</span>)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"    NOT significant"</span>)</span>
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">2️⃣ Time Effect (2018 → 2024): p = </span><span class="sc">{</span>p_essround<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">2️ Time Effect (2018 → 2024): p = </span><span class="sc">{</span>p_essround<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> p_essround <span class="op">&lt;</span> <span class="fl">0.05</span>:</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"   ✅ SIGNIFICANT - Security values changed over time (not random)"</span>)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"    SIGNIFICANT - Security values changed over time (not random)"</span>)</span>
 <span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"   ❌ NOT significant"</span>)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"    NOT significant"</span>)</span>
 <span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">3️⃣ Interaction Effect (THE SMOKING GUN): p = </span><span class="sc">{</span>p_interaction<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">3️ Interaction Effect (THE SMOKING GUN): p = </span><span class="sc">{</span>p_interaction<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
 <span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> p_interaction <span class="op">&lt;</span> <span class="fl">0.05</span>:</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"   ✅ HIGHLY SIGNIFICANT"</span>)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"    HIGHLY SIGNIFICANT"</span>)</span>
 <span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"   → Pandemic affected DIFFERENT generations DIFFERENTLY"</span>)</span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"   → Asymmetric effect PROVEN! 🎯"</span>)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"   → Asymmetric effect PROVEN! "</span>)</span>
 <span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"   ❌ NOT significant"</span>)</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"    NOT significant"</span>)</span>
 <span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> p_interaction <span class="op">&lt;</span> <span class="fl">0.05</span>:</span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">🎯 KEY FINDING:"</span>)</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st"> KEY FINDING:"</span>)</span>
 <span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"   The pandemic was NOT a universal shock."</span>)</span>
 <span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"   Older generations responded MORE than younger generations."</span>)</span>
 <span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"   This WIDENED the generational gap!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -919,42 +948,37 @@ Name: lrscale, dtype: float64</code></pre>
 ANOVA INTERPRETATION
 ================================================================================
 
-1️⃣ Generation Effect: p = 0.000000
-   ✅ SIGNIFICANT - Generations differ on Security (not random)
+1️ Generation Effect: p = 0.000000
+    SIGNIFICANT - Generations differ on Security (not random)
 
-2️⃣ Time Effect (2018 → 2024): p = 0.000000
-   ✅ SIGNIFICANT - Security values changed over time (not random)
+2️ Time Effect (2018 → 2024): p = 0.000000
+    SIGNIFICANT - Security values changed over time (not random)
 
-3️⃣ Interaction Effect (THE SMOKING GUN): p = 0.014285
-   ✅ HIGHLY SIGNIFICANT
+3️ Interaction Effect (THE SMOKING GUN): p = 0.014285
+    HIGHLY SIGNIFICANT
    → Pandemic affected DIFFERENT generations DIFFERENTLY
-   → Asymmetric effect PROVEN! 🎯
+   → Asymmetric effect PROVEN! 
 
-🎯 KEY FINDING:
+ KEY FINDING:
    The pandemic was NOT a universal shock.
    Older generations responded MORE than younger generations.
    This WIDENED the generational gap!</code></pre>
 </div>
 </div>
-<p>To finalize our study, we conducted a Two-Way ANOVA to test the relationship between <strong>Generation</strong> and <strong>Time (ESS Rounds)</strong> on Security values.</p>
-<p><strong>The Statistical Results confirm our hypothesis:</strong></p>
+<p>The two-way ANOVA results provide formal statistical support for all three components of the key finding:</p>
 <ol type="1">
-<li><strong>Generational Difference (p &lt; 0.05):</strong> We have statistical proof that different generations do not share the same baseline for security.</li>
-<li><strong>The Pandemic Impact (p &lt; 0.05):</strong> The shift in values over the 2018–2024 period is statistically significant; European society has changed.</li>
-<li><strong>The Interaction Effect—“The Smoking Gun” (p &lt; 0.05):</strong> Most importantly, the interaction between Time and Generation is significant. This proves that the pandemic was <strong>not a universal experience.</strong> It affected older generations’ security values much more intensely than younger generations.</li>
+<li><p><strong>Generation Effect (p &lt; 0.001):</strong> Different generations hold genuinely different baseline levels of Security values. This difference is not due to chance.</p></li>
+<li><p><strong>Time Effect (p &lt; 0.001):</strong> Security values shifted meaningfully across the 2018–2024 period. European societies did not return to pre-pandemic norms.</p></li>
+<li><p><strong>Interaction Effect — p = 0.014 — the critical result:</strong> The pandemic did not affect all generations equally. The significant interaction confirms that older and younger cohorts moved in different directions and by different magnitudes — the statistical proof of the asymmetric polarizing effect described in the key findings in different directions and statistically widening the generational gap in Europe.</p></li>
 </ol>
-<p><strong>Final Conclusion:</strong> The math is clear. The pandemic acted as a <strong>polarizing force</strong>, pushing older and younger citizens in different directions and statistically widening the generational gap in Europe.</p>
-</section>
 </section>
 <section id="part-6-summary-of-findings" class="level2">
 <h2 class="anchored" data-anchor-id="part-6-summary-of-findings">PART 6: Summary of Findings</h2>
-<ul>
-<li><p><strong>Political attitudes:</strong> Younger cohorts are slightly more left-leaning, while older cohorts, especially the Silent Generation, are more right-leaning. The post-pandemic gap appears wider than the pre-pandemic gap.</p></li>
-<li><p><strong>Connection to Question 1:</strong> Question 1 showed that Universalism predicts left-wing placement, while Tradition, Security, and Conformity predict right-wing placement.</p></li>
-<li><p><strong>Generational value priorities:</strong> Question 2 applies that finding by comparing Universalism with a Conservation Index across generations.</p></li>
-<li><p><strong>Pandemic landscape:</strong> Tracking Universalism and Conservation across ESS rounds shows whether the politically relevant value pathways changed differently before, during, and after the pandemic.</p></li>
-<li><p><strong>Main interpretation:</strong> The post-pandemic generational political gap can be interpreted through value priorities: older cohorts tend to be more conservation-oriented, and conservation values are linked to more right-wing placement.</p></li>
-</ul>
+<p>This analysis has established, through four converging layers of evidence, that the generational political divide in Europe is both value-rooted and pandemic-amplified.</p>
+<p><strong>The outcome</strong> (Parts 1 and 2): A widening generational gap in political self-placement, driven not by a dramatic youth shift but by the sustained rightward drift of older cohorts who did not return to their pre-pandemic baseline after the crisis passed.</p>
+<p><strong>The mechanism</strong> (Parts 3 and 4): Older generations hold stronger Conservation value priorities — Tradition, Security, and Conformity — that predict right-wing placement and that intensified under pandemic conditions. Younger generations, anchored by Stimulation and Self-Direction, did not experience the same value-level response. The pandemic amplified a pre-existing value asymmetry rather than creating a new one.</p>
+<p><strong>The proof</strong> (Part 5): The interaction between generation and time is statistically significant (p = 0.014), confirming that the asymmetric response is a real structural phenomenon, not a sampling artifact.</p>
+<p>Taken together, the evidence supports the interpretation that the widening of the generational political gap is not a temporary post-pandemic disruption but a reflection of genuinely different value systems responding differently to a shared crisis. As the cohorts who experienced the pandemic in early adulthood grow as a share of the European electorate — and as older cohorts’ elevated Security concerns persist — this value-driven divergence is likely to remain a defining feature of European political landscapes in the decades ahead.</p>
 
 
 </section>
@@ -1034,7 +1058,7 @@ ANOVA INTERPRETATION
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/CU-S26-MSDSSB-DSCI-01-DataScienceLab\.github\.io\/DataScienceLab_HumanValues\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

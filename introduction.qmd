@@ -2,13 +2,19 @@
 title: "Introduction"
 ---
 
-# Project Description
+# Project Overview
 
-Understanding how personal values shape political attitudes is a key question in political sociology. In Europe, this relationship has been tested by major societal changes, particularly the COVID-19 pandemic. This project examines whether such disruptions have altered the link between human values and political orientations across generations.
+Understanding how personal values shape political attitudes is a central question in political sociology. In Europe, this relationship has been tested by major societal disruptions, most notably the COVID-19 pandemic, which created a rare opportunity to examine whether a collective shock can measurably alter the link between individual value systems and political orientations.
 
-# Data Sources
+This project uses data from the European Social Survey (ESS), covering Round 9 (2018, pre-pandemic), Round 10 (2020–2022, pandemic period), and Round 11 (2022–2024, post-pandemic). The analysis is grounded in the **Schwartz Theory of Basic Human Values**, which organises ten core motivational values; from Universalism and Benevolence to Security, Conformity, and Power in a circular structure where adjacent values are compatible and opposing values reflect conflicting motivational priorities.
 
-The analysis uses data from the European Social Survey (Rounds 9–11). We construct value indices based on the Schwartz framework and analyze their relationship with political attitudes using descriptive statistics and statistical tests.
+By comparing respondents across five generational cohorts (Generation Z, Millennials, Generation X, Boomers, and the Silent Generation), the study investigates whether younger generations are developing a distinct value profile that may reshape future European political dynamics.
+
+# Data and Preprocessing
+
+The analysis uses data from ESS Rounds 9–11, covering approximately 136,000 respondents across Europe. Human values are measured using the Portrait Values Questionnaire (PVQ-21), a 21-item battery rated on a 1–6 scale.
+
+The raw data were preprocessed in three main steps: missing value codes were replaced with `NaN`, items were reverse-coded so that higher scores reflect stronger endorsement, and a **MRAT (Mean Rating) correction** was applied. The MRAT correction centers each respondent's value scores around their own personal mean, removing individual response style bias and enabling reliable comparisons across rounds and generations. The resulting dataset, `ess_final_analysis.csv`, is used in all subsequent analyses.
 
 # Sections
 
@@ -16,7 +22,7 @@ This project is structured into several sections, each addressing a specific par
 
 
 - The [Literature Review](literature_review.ipynb) provides the theoretical background based on Schwartz’s Theory of Basic Human Values and discusses previous empirical findings.
-- The empirical analysis is presented in dedicated sections (the research questions), where we explore the relationship between human values and political attitudes using European Social Survey data.
+- The empirical analysis is presented in dedicated sections (The Research Questions), where we explore the relationship between human values and political attitudes using European Social Survey data.
 - The [Conclusion](conclusion.qmd) summarizes the key findings and reflects on their implications for understanding political behavior in Europe.
 
 The Research Questions are:
