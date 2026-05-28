@@ -211,19 +211,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="project-overview" class="level1">
-<h1>Project Overview</h1>
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
 <p>Understanding how personal values shape political attitudes is a central question in political sociology. In Europe, this relationship has been tested by major societal disruptions, most notably the COVID-19 pandemic, which created a rare opportunity to examine whether a collective shock can measurably alter the link between individual value systems and political orientations.</p>
 <p>This project uses data from the European Social Survey (ESS), covering Round 9 (2018, pre-pandemic), Round 10 (2020–2022, pandemic period), and Round 11 (2022–2024, post-pandemic). The analysis is grounded in the <strong>Schwartz Theory of Basic Human Values</strong>, which organises ten core motivational values — from Universalism and Benevolence to Security, Conformity, and Power — in a circular structure where adjacent values are compatible and opposing values reflect conflicting motivational priorities.</p>
 <p>By comparing respondents across five generational cohorts (Generation Z, Millennials, Generation X, Boomers, and the Silent Generation), the study investigates whether younger generations are developing a distinct value profile that may reshape future European political dynamics.</p>
 </section>
-<section id="data-and-preprocessing" class="level1">
-<h1>Data and Preprocessing</h1>
+<section id="data-and-preprocessing" class="level2">
+<h2 class="anchored" data-anchor-id="data-and-preprocessing">Data and Preprocessing</h2>
 <p>The analysis uses data from ESS Rounds 9–11, covering approximately 136,000 respondents across Europe. Human values are measured using the Portrait Values Questionnaire (PVQ-21), a 21-item battery rated on a 1–6 scale.</p>
 <p>The raw data were preprocessed in three main steps: missing value codes were replaced with <code>NaN</code>, items were reverse-coded so that higher scores reflect stronger endorsement, and a <strong>MRAT (Mean Rating) correction</strong> was applied. The MRAT correction centers each respondent’s value scores around their own personal mean, removing individual response style bias and enabling reliable comparisons across rounds and generations. The resulting dataset, <code>ess_final_analysis.csv</code>, is used in all subsequent analyses.</p>
 </section>
-<section id="sections" class="level1">
-<h1>Sections</h1>
+<section id="sections" class="level2">
+<h2 class="anchored" data-anchor-id="sections">Sections</h2>
 <p>This project is structured into several sections, each addressing a specific part of the analysis and research questions.</p>
 <ul>
 <li>The <a href="./literature_review.html">Literature Review</a> provides the theoretical background based on Schwartz’s Theory of Basic Human Values and discusses previous empirical findings.</li>
