@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Title of Section 1 – A Generational Analysis of the Relationship Between Human Values and Political Attitudes in Europe (2018–2024)</title>
+<title>1. Data Preprocessing – A Generational Analysis of the Relationship Between Human Values and Political Attitudes in Europe (2018–2024)</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -145,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Title of Section 1</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">1. Data Preprocessing</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -177,14 +177,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Q2_Tayaphon.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Question 2: How do political attitudes and Human value priorities differ across generational cohorts in the Pre and post pandemic landscape?</span></a>
+  <a href="./Maria_Question.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question 2: Does the value-attitude correlation vary between countries?</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pelin_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Question 3: Did the COVID-19 pandemic lead to a measurable shift in ‘Conservation’ values (Security, Conformity, Tradition) and ‘Political Trust’ between Round 9 and Round 11?</span></a>
+  <a href="./Tayaphon_Question.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question 3: How do political attitudes and Human value priorities differ across generational cohorts in the Pre and post pandemic landscape?</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -195,14 +195,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Uyazi_Q5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Question 5: How does the value of Universalism predict attitudes toward government-led income redistribution, and has this relationship changed for Gen Z compared to previous generations?</span></a>
+  <a href="./pelin_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question 5: Did the COVID-19 pandemic lead to a measurable shift in ‘Conservation’ values (Security, Conformity, Tradition) and ‘Political Trust’ between Round 9 and Round 11?</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Maria_Question_6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Question 6: Does the value-attitude correlation vary between countries?</span></a>
+  <a href="./Uyazi_Question.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question 6: How does the value of Universalism predict attitudes toward government-led income redistribution, and has this relationship changed for Gen Z compared to previous generations?</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -221,25 +221,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-preprocessing" id="toc-data-preprocessing" class="nav-link active" data-scroll-target="#data-preprocessing">Data Preprocessing</a>
-  <ul class="collapse">
-  <li><a href="#data-importing" id="toc-data-importing" class="nav-link" data-scroll-target="#data-importing">Data importing</a></li>
-  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration">Data Exploration</a></li>
+  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link active" data-scroll-target="#data-exploration">Data Exploration</a></li>
   <li><a href="#data-cleansing" id="toc-data-cleansing" class="nav-link" data-scroll-target="#data-cleansing">Data Cleansing</a></li>
-  </ul></li>
-  <li><a href="#handling-missing-data-refusals-dont-knows" id="toc-handling-missing-data-refusals-dont-knows" class="nav-link" data-scroll-target="#handling-missing-data-refusals-dont-knows">— 1. Handling Missing Data (Refusals, Don’t Knows) —</a></li>
-  <li><a href="#we-replace-ess-specific-missing-codes-with-nan-not-a-number" id="toc-we-replace-ess-specific-missing-codes-with-nan-not-a-number" class="nav-link" data-scroll-target="#we-replace-ess-specific-missing-codes-with-nan-not-a-number">We replace ESS-specific missing codes with NaN (Not a Number)</a></li>
-  <li><a href="#reverse-coding-the-values" id="toc-reverse-coding-the-values" class="nav-link" data-scroll-target="#reverse-coding-the-values">— 2. Reverse Coding the Values —</a></li>
-  <li><a href="#transformation-max-1---original_value" id="toc-transformation-max-1---original_value" class="nav-link" data-scroll-target="#transformation-max-1---original_value">Transformation: (Max + 1) - original_value</a></li>
-  <li><a href="#this-ensures-6-very-much-like-me-and-1-not-at-all-like-me" id="toc-this-ensures-6-very-much-like-me-and-1-not-at-all-like-me" class="nav-link" data-scroll-target="#this-ensures-6-very-much-like-me-and-1-not-at-all-like-me">This ensures 6 = “Very much like me” and 1 = “Not at all like me”</a></li>
-  <li><a href="#creating-generational-cohorts" id="toc-creating-generational-cohorts" class="nav-link" data-scroll-target="#creating-generational-cohorts">— 3. Creating Generational Cohorts —</a></li>
-  <li><a href="#creating-schwartz-value-dimensions-the-full-10" id="toc-creating-schwartz-value-dimensions-the-full-10" class="nav-link" data-scroll-target="#creating-schwartz-value-dimensions-the-full-10">— 4. Creating Schwartz Value Dimensions (The Full 10) —</a></li>
-  <li><a href="#we-calculate-the-mean-of-specific-items-to-create-the-core-value-pillars" id="toc-we-calculate-the-mean-of-specific-items-to-create-the-core-value-pillars" class="nav-link" data-scroll-target="#we-calculate-the-mean-of-specific-items-to-create-the-core-value-pillars">We calculate the mean of specific items to create the core value pillars</a></li>
-  <li><a href="#list-of-master-value-columns-for-easy-access-in-section-2" id="toc-list-of-master-value-columns-for-easy-access-in-section-2" class="nav-link" data-scroll-target="#list-of-master-value-columns-for-easy-access-in-section-2">List of Master Value columns for easy access in Section 2</a></li>
-  <li><a href="#cleaned-data-preview" id="toc-cleaned-data-preview" class="nav-link" data-scroll-target="#cleaned-data-preview">— 5. Cleaned Data Preview —</a></li>
-  <li><a href="#verification-check-for-the-project-team" id="toc-verification-check-for-the-project-team" class="nav-link" data-scroll-target="#verification-check-for-the-project-team">Verification check for the project team</a>
+  <li><a href="#variable-transformation" id="toc-variable-transformation" class="nav-link" data-scroll-target="#variable-transformation">Variable Transformation</a></li>
+  <li><a href="#descriptive-analysis" id="toc-descriptive-analysis" class="nav-link" data-scroll-target="#descriptive-analysis">2. Descriptive Analysis</a>
   <ul class="collapse">
-  <li><a href="#headline-2" id="toc-headline-2" class="nav-link" data-scroll-target="#headline-2">Headline 2</a></li>
+  <li><a href="#sample-composition-demographics" id="toc-sample-composition-demographics" class="nav-link" data-scroll-target="#sample-composition-demographics">1. Sample Composition (Demographics)</a></li>
+  <li><a href="#the-generational-value-heatmap-mrat-corrected" id="toc-the-generational-value-heatmap-mrat-corrected" class="nav-link" data-scroll-target="#the-generational-value-heatmap-mrat-corrected">2. The Generational Value Heatmap (MRAT Corrected)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -249,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Title of Section 1</h1>
+<h1 class="title">1. Data Preprocessing</h1>
 </div>
 
 
@@ -266,83 +254,427 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<!-- You have to develop your own headline structure. -->
-<section id="data-preprocessing" class="level2">
-<h2 class="anchored" data-anchor-id="data-preprocessing">Data Preprocessing</h2>
-<section id="data-importing" class="level3">
-<h3 class="anchored" data-anchor-id="data-importing">Data importing</h3>
-<div id="d28cfe71" class="cell" data-execution_count="1">
+<p>In this section, we import the raw ESS data and prepare it for analysis by handling missing values and transforming variables.</p>
+<div id="c0cc11d57e7eb8d4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T12:58:46.990082Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T12:58:33.960633Z&quot;}}" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> zipfile <span class="co"># For handling zip files</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Upload zip.folder from ESS website </span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>zip_path <span class="op">=</span> <span class="st">"ESS9e03_3-ESS10e03_3-ESS10SCe03_2-ESS11e04_1-subset.zip"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>csv_inside <span class="op">=</span> <span class="st">"ESS9e03_3-ESS10e03_3-ESS10SCe03_2-ESS11e04_1-subset.csv"</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> zipfile.ZipFile(zip_path, <span class="st">'r'</span>) <span class="im">as</span> z:</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> z.<span class="bu">open</span>(csv_inside) <span class="im">as</span> f:</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            df <span class="op">=</span> pd.read_csv(f, low_memory<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">" CSV Load Successful!"</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dataset Size: </span><span class="sc">{</span>df<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> rows x </span><span class="sc">{</span>df<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> columns"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> zipfile</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> seaborn.external.docscrape <span class="im">import</span> header</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load Dataset</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>zip_path <span class="op">=</span> <span class="st">"ESS9e03_3-ESS10e03_3-ESS10SCe03_2-ESS11e04_1-subset.zip"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>csv_inside <span class="op">=</span> <span class="st">"ESS9e03_3-ESS10e03_3-ESS10SCe03_2-ESS11e04_1-subset.csv"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> zipfile.ZipFile(zip_path, <span class="st">'r'</span>) <span class="im">as</span> z:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> z.<span class="bu">open</span>(csv_inside) <span class="im">as</span> f:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        df <span class="op">=</span> pd.read_csv(f, low_memory<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"CSV Load Successful!"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dataset Size: </span><span class="sc">{</span>df<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> rows x </span><span class="sc">{</span>df<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> columns"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code> CSV Load Successful!
+<pre><code>CSV Load Successful!
 Dataset Size: 159320 rows x 635 columns</code></pre>
 </div>
 </div>
-</section>
 <section id="data-exploration" class="level3">
 <h3 class="anchored" data-anchor-id="data-exploration">Data Exploration</h3>
-<div id="1bdc7e7f" class="cell" data-execution_count="2">
+<p>The original ESS dataset contains hundreds of variables. For this study, we have isolated 34 specific variables categorized into: - Demographics: yrbrn, agea, gndr, etc. - Schwartz Human Values: The 21-item battery (e.g., ipcrtiv to ipadvnt). - Socio-Political Attitudes: gincdif (Redistribution) and Institutional Trust (trstplt).</p>
+<div id="1aba7119" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T12:58:47.011382Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T12:58:47.004163Z&quot;}}" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataset Dimensions (Rows, Columns)</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"### 1. Dataset Dimensions"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The dataset contains </span><span class="sc">{</span>df<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> respondents and </span><span class="sc">{</span>df<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> variables."</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Data Structure</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">### 2. Data Structure"</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Column Names (First 50):"</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.columns.tolist()[:<span class="dv">50</span>])</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Raw Data Preview</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">### 3. Raw Data Preview (Selected Columns)"</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># pick only the columns of interest to display: country, birth year, and some human values questions</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>interest_cols <span class="op">=</span> [<span class="st">'cntry'</span>, <span class="st">'yrbrn'</span>] <span class="op">+</span> [c <span class="cf">for</span> c <span class="kw">in</span> df.columns <span class="cf">if</span> c.startswith(<span class="st">'ip'</span>)][:<span class="dv">5</span>]</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[interest_cols].head())</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistical Summary</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">### 4. Statistical Summary of Values &amp; Birth Year"</span>)</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>key_vars <span class="op">=</span> [<span class="st">'yrbrn'</span>] <span class="op">+</span> [c <span class="cf">for</span> c <span class="kw">in</span> df.columns <span class="cf">if</span> c.startswith(<span class="st">'ip'</span>)][:<span class="dv">10</span>]</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>display(df[key_vars].describe().T)</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Diversity</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">### 5. Country Distribution (Top 10)"</span>)</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>display(df[<span class="st">'cntry'</span>].value_counts().head(<span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>Index(['name', 'essround', 'edition', 'proddate', 'idno', 'cntry', 'dweight',
+       'pspwght', 'pweight', 'anweight',
+       ...
+       'inwdde', 'inwmme', 'inwde', 'jinws', 'jinwe', 'scwd78se', 'questcmp',
+       'intewde', 'mode', 'yrbrn'],
+      dtype='object', length=635)</code></pre>
+</div>
+</div>
+<p>Inspection of the ESS dataset reveals an important structural difference across survey rounds: For Rounds 9 and 10, Schwartz human value items are recorded under the standard column names (e.g., imprich). For Round 11, the same items were stored in renamed columns with an “a” suffix (e.g., impricha).</p>
+<div id="c296f616" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we need to Merge Round 11 'a' columns into the main columns</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># List of the 21 Schwartz value variables</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>schwartz_21 <span class="op">=</span> [</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ipcrtiv"</span>,<span class="st">"imprich"</span>,<span class="st">"impfun"</span>,<span class="st">"impsafe"</span>,<span class="st">"imptrad"</span>,<span class="st">"impfree"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"impenv"</span>,<span class="st">"iphlppl"</span>,<span class="st">"ipeqopt"</span>,<span class="st">"ipudrst"</span>,<span class="st">"ipgdtim"</span>,<span class="st">"ipfrule"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ipstrgv"</span>,<span class="st">"ipbhprp"</span>,<span class="st">"iplylfr"</span>,<span class="st">"ipmodst"</span>,<span class="st">"iprspot"</span>,<span class="st">"ipsuces"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ipadvnt"</span>,<span class="st">"impdiff"</span>,<span class="st">"ipshabt"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through all 21 values</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> schwartz_21:</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    col_a <span class="op">=</span> col <span class="op">+</span> <span class="st">"a"</span>  <span class="co"># This creates the Round 11 name (e.g., "impricha")</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the "a" version exists in the dataset</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> col_a <span class="kw">in</span> df.columns:</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Fill missing values in the normal column with data from the 'a' column</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        df[col] <span class="op">=</span> df[col].fillna(df[col_a])</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Successfully merged Round 11 Schwartz values!"</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>df.columns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>### 1. Dataset Dimensions
-The dataset contains 159320 respondents and 635 variables.
+<pre><code>Successfully merged Round 11 Schwartz values!</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>Index(['name', 'essround', 'edition', 'proddate', 'idno', 'cntry', 'dweight',
+       'pspwght', 'pweight', 'anweight',
+       ...
+       'inwdde', 'inwmme', 'inwde', 'jinws', 'jinwe', 'scwd78se', 'questcmp',
+       'intewde', 'mode', 'yrbrn'],
+      dtype='object', length=635)</code></pre>
+</div>
+</div>
+<div id="ef32428a" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T12:58:47.316760Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T12:58:47.311260Z&quot;}}" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>columns_to_keep <span class="op">=</span> [</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"idno"</span>,<span class="st">"cntry"</span>,<span class="st">"essround"</span>,<span class="st">"yrbrn"</span>,<span class="st">"agea"</span>,<span class="st">"gndr"</span>,<span class="st">"anweight"</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lrscale"</span>,<span class="st">"trstprl"</span>,<span class="st">"trstplt"</span>,<span class="st">"trstlgl"</span>,<span class="st">"stflife"</span>,<span class="st">"gincdif"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ipcrtiv"</span>,<span class="st">"imprich"</span>,<span class="st">"impfun"</span>,<span class="st">"impsafe"</span>,<span class="st">"imptrad"</span>,<span class="st">"impfree"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"impenv"</span>,<span class="st">"iphlppl"</span>,<span class="st">"ipeqopt"</span>,<span class="st">"ipudrst"</span>,<span class="st">"ipgdtim"</span>,<span class="st">"ipfrule"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ipstrgv"</span>,<span class="st">"ipbhprp"</span>,<span class="st">"iplylfr"</span>,<span class="st">"ipmodst"</span>,<span class="st">"iprspot"</span>,<span class="st">"ipsuces"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ipadvnt"</span>,<span class="st">"impdiff"</span>,<span class="st">"ipshabt"</span>]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[columns_to_keep]</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Selected columns for analysis:"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Selected columns for analysis:</code></pre>
+</div>
+</div>
+<div id="a51fd843" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T12:58:51.429308Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T12:58:47.788721Z&quot;}}" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"filtered_columns.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="e28abab4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T12:58:52.548030Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T12:58:51.444513Z&quot;}}" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"filtered_columns.csv"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   idno cntry  essround  yrbrn  agea  gndr  anweight  lrscale  trstprl  \
+0    27    AT         9   1975    43     1  0.065890        9        5   
+1   137    AT         9   1951    67     1  0.124907        5        7   
+2   194    AT         9   1978    40     2  0.685836        5        6   
+3   208    AT         9   1955    63     1  0.116753       88        0   
+4   220    AT         9   1947    71     2  0.311789        5        7   
 
-### 2. Data Structure
-Column Names (First 50):
-['name', 'essround', 'edition', 'proddate', 'idno', 'cntry', 'dweight', 'pspwght', 'pweight', 'anweight', 'prob', 'stratum', 'psu', 'actrolga', 'badge', 'bctprd', 'clsprty', 'contplt', 'cptppola', 'euftf', 'freehms', 'gincdif', 'hmsacld', 'hmsfmlsh', 'implvdm', 'lrscale', 'pbldmn', 'pbldmna', 'polintr', 'prtdgcl', 'psppipla', 'psppsgva', 'pstplonl', 'sgnptit', 'stfdem', 'stfeco', 'stfedu', 'stfgov', 'stfhlth', 'stflife', 'trstep', 'trstlgl', 'trstplc', 'trstplt', 'trstprl', 'trstprt', 'trstun', 'trstsci', 'vote', 'wrkorg']
+   trstplt  ...  ipfrule  ipstrgv  ipbhprp  iplylfr  ipmodst  iprspot  \
+0        5  ...      2.0      2.0      2.0      2.0      1.0      2.0   
+1        3  ...      4.0      3.0      2.0      2.0      4.0      3.0   
+2        5  ...      3.0      2.0      2.0      3.0      3.0      3.0   
+3        3  ...      2.0      1.0      1.0      1.0      2.0      1.0   
+4        7  ...      2.0      2.0      1.0      2.0      3.0      3.0   
 
-### 3. Raw Data Preview (Selected Columns)
-  cntry  yrbrn  ipadvnt  ipadvnta  ipbhprp  ipbhprpa  ipcrtiv
-0    AT   1975      2.0       NaN      2.0       NaN      2.0
-1    AT   1951      5.0       NaN      2.0       NaN      3.0
-2    AT   1978      3.0       NaN      2.0       NaN      3.0
-3    AT   1955      6.0       NaN      1.0       NaN      2.0
-4    AT   1947      6.0       NaN      1.0       NaN      2.0
+   ipsuces  ipadvnt  impdiff  ipshabt  
+0      2.0      2.0      2.0      2.0  
+1      4.0      5.0      4.0      3.0  
+2      3.0      3.0      4.0      3.0  
+3      1.0      6.0      3.0      1.0  
+4      6.0      6.0      4.0      4.0  
 
-### 4. Statistical Summary of Values &amp; Birth Year</code></pre>
+[5 rows x 34 columns]</code></pre>
+</div>
+</div>
+</section>
+<section id="data-cleansing" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleansing">Data Cleansing</h3>
+<p>To ensure the data is research-ready, we perform the following: 1. <strong>Checked for duplicates</strong> 2. <strong>Checked Missing Values:</strong> Convert ESS codes (7, 8, 9, 77, 88, 99) to <code>NaN</code>. 3. <strong>Scale Reversal:</strong> We transform the 1- 6 scale to ensure <strong>6 = Strong Agreement</strong>.</p>
+<section id="checked-for-duplicates" class="level4">
+<h4 class="anchored" data-anchor-id="checked-for-duplicates">1. Checked for duplicates</h4>
+<div id="25161957" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T12:58:52.977530Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T12:58:52.576567Z&quot;}}" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df.duplicated()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>0         False
+1         False
+2         False
+3         False
+4         False
+          ...  
+159315    False
+159316    False
+159317    False
+159318    False
+159319    False
+Length: 159320, dtype: bool</code></pre>
+</div>
+</div>
+<div id="3911bcc5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T12:58:53.114879Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T12:58:53.062788Z&quot;}}" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df.isna().<span class="bu">sum</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>idno            0
+cntry           0
+essround        0
+yrbrn           0
+agea            0
+gndr            0
+anweight        0
+lrscale         0
+trstprl         0
+trstplt         0
+trstlgl         0
+stflife         0
+gincdif         0
+ipcrtiv     22074
+imprich     22074
+impfun      22074
+impsafe     22074
+imptrad     22074
+impfree     22074
+impenv      22074
+iphlppl     22074
+ipeqopt     22074
+ipudrst     22074
+ipgdtim     22074
+ipfrule     22074
+ipstrgv     22074
+ipbhprp     22074
+iplylfr     22074
+ipmodst     22074
+iprspot     22074
+ipsuces     22074
+ipadvnt     22074
+impdiff     22074
+ipshabt     22074
+dtype: int64</code></pre>
+</div>
+</div>
+<p>The 22,074 missing values across all human value variables (ipcrtiv, imprich, etc.) are an expected structural feature of multi-round ESS data, not errors. The Schwartz PVQ-21 battery is not administered uniformly across all rounds; respondents from rounds where these items were not fielded appear as missing by design. These cases are handled appropriately in the preprocessing steps that follow.</p>
+</section>
+<section id="checked-missing-values" class="level4">
+<h4 class="anchored" data-anchor-id="checked-missing-values">2. Checked Missing Values</h4>
+<div id="68daa15e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T12:58:53.994599Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T12:58:53.923003Z&quot;}}" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Handle Missing Data for left-right scale</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df [(df[<span class="st">"lrscale"</span>] <span class="op">&gt;=</span> <span class="dv">0</span>)  <span class="op">&amp;</span> (df[<span class="st">"lrscale"</span>] <span class="op">&lt;=</span> <span class="dv">10</span>)]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Handle missing data for Income redistribution</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'gincdif'</span>] <span class="op">=</span> df[<span class="st">'gincdif'</span>].replace([<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">77</span>, <span class="dv">88</span>, <span class="dv">99</span>], np.nan)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># #Handle missing data for satisfaction with life as a whole</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'stflife'</span>] <span class="op">=</span> df[<span class="st">'stflife'</span>].replace([<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>], np.nan)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Handle missing values for Trust in Parliament</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'trstprl'</span>] <span class="op">=</span> df[<span class="st">'trstprl'</span>].replace([<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>], np.nan)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Handle missing values for Gender</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'gndr'</span>] <span class="op">=</span> df[<span class="st">'gndr'</span>].replace(<span class="dv">9</span>, np.nan)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="83199cce" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T12:58:54.299321Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T12:58:54.271017Z&quot;}}" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"lrscale"</span>].unique()</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"gincdif"</span>].unique()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>array([ 1.,  2.,  3.,  4.,  5., nan])</code></pre>
+</div>
+</div>
+</section>
+<section id="scale-reversal" class="level4">
+<h4 class="anchored" data-anchor-id="scale-reversal">3. Scale Reversal</h4>
+<div id="3b2dd4b7" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T12:58:54.834198Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T12:58:54.689679Z&quot;}}" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reverse Coding (7 - x) for Irscale Items (ip... and imp... columns)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Identify the columns</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>value_cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> df.columns <span class="cf">if</span> c.startswith(<span class="st">'ip'</span>) <span class="kw">or</span> c.startswith(<span class="st">'imp'</span>)]</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert 'Refusals' (7), 'Don't Knows' (8), and 'No Answers' (9) to NaN</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This ensures they don't mess up our averages</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> value_cols:</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    df.loc[df[col] <span class="op">&gt;</span> <span class="dv">6</span>, col] <span class="op">=</span> np.nan</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Identify the columns</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>value_cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> df.columns <span class="cf">if</span> c.startswith(<span class="st">'ip'</span>) <span class="kw">or</span> c.startswith(<span class="st">'imp'</span>)]</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># apply the Reverse Coding: 7 - x</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Now 6 = "Very much like me" and 1 = "Not like me at all"</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>df[value_cols] <span class="op">=</span> <span class="dv">7</span> <span class="op">-</span> df[value_cols]</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Reversing gincdif (1-5 scale)</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Original: 1 = Agree Strongly, 5 = Disagree Strongly</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co"># New: 5 = Agree Strongly, 1 = Disagree Strongly</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'gincdif'</span>] <span class="op">=</span> <span class="dv">6</span> <span class="op">-</span> df[<span class="st">'gincdif'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+</section>
+<section id="variable-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="variable-transformation">Variable Transformation</h3>
+<ol type="1">
+<li><strong>Generational Mapping </strong> (Gen Z to Boomers) based on <code>yrbrn</code></li>
+<li><strong>Schwartz Dimensions:</strong> Mapping 21 items into the 10 core values.</li>
+<li><strong>MRAT Correction</strong></li>
+</ol>
+<section id="generational-mapping" class="level4">
+<h4 class="anchored" data-anchor-id="generational-mapping">1. Generational Mapping</h4>
+<div id="888a0788" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T12:58:53.200134Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T12:58:53.152177Z&quot;}}" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the years of birth between 1920-2010</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df [(df[<span class="st">"yrbrn"</span>] <span class="op">&gt;=</span> <span class="dv">1920</span>) <span class="op">&amp;</span> (df[<span class="st">"yrbrn"</span>] <span class="op">&lt;=</span> <span class="dv">2010</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="994f7af5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T12:58:53.410851Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T12:58:53.399424Z&quot;}}" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"yrbrn"</span>].unique()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>array([1975, 1951, 1978, 1947, 1954, 1962, 1944, 1981, 1996, 1970, 1959,
+       1941, 1977, 1956, 1991, 1958, 1969, 1976, 1968, 1988, 1999, 1948,
+       1972, 1983, 1982, 1995, 1950, 1960, 1974, 1946, 1945, 1973, 1985,
+       1979, 1971, 1980, 1942, 1965, 1993, 1940, 1961, 2000, 1986, 1989,
+       1964, 1992, 1955, 1963, 1994, 1949, 1943, 1939, 1966, 1957, 1984,
+       1987, 1932, 1952, 1933, 1997, 1953, 2001, 1990, 1931, 1936, 1928,
+       1935, 1998, 2002, 1967, 1938, 1934, 2003, 1937, 1930, 1929, 2004,
+       2006, 2005, 2007, 2008, 2009])</code></pre>
+</div>
+</div>
+<div id="1f538ee1" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Generation Column</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>conditions <span class="op">=</span> [</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">'yrbrn'</span>] <span class="op">&gt;=</span> <span class="dv">1997</span>),                                <span class="co"># Gen Z</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">'yrbrn'</span>] <span class="op">&gt;=</span> <span class="dv">1981</span>) <span class="op">&amp;</span> (df[<span class="st">'yrbrn'</span>] <span class="op">&lt;=</span> <span class="dv">1996</span>),        <span class="co"># Millennials</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">'yrbrn'</span>] <span class="op">&gt;=</span> <span class="dv">1965</span>) <span class="op">&amp;</span> (df[<span class="st">'yrbrn'</span>] <span class="op">&lt;=</span> <span class="dv">1980</span>),        <span class="co"># Gen X</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">'yrbrn'</span>] <span class="op">&gt;=</span> <span class="dv">1946</span>) <span class="op">&amp;</span> (df[<span class="st">'yrbrn'</span>] <span class="op">&lt;=</span> <span class="dv">1964</span>),        <span class="co"># Boomers</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">'yrbrn'</span>] <span class="op">&lt;=</span> <span class="dv">1945</span>)                                 <span class="co"># Silent Generation</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Gen Z'</span>, <span class="st">'Millennials'</span>, <span class="st">'Gen X'</span>, <span class="st">'Boomers'</span>, <span class="st">'Silent Gen'</span>]</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'generation'</span>] <span class="op">=</span> np.select(conditions, labels, default<span class="op">=</span><span class="st">'Unknown'</span>)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'generation'</span>].value_counts())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>generation
+Boomers        43747
+Gen X          36956
+Millennials    29632
+Silent Gen     13194
+Gen Z          12925
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="schwartz-dimensions" class="level4">
+<h4 class="anchored" data-anchor-id="schwartz-dimensions">2. Schwartz Dimensions</h4>
+<div id="be1f931553f28e3f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T12:58:57.228975Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T12:58:56.473805Z&quot;}}" data-execution_count="15">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating new columns for Schwartz Value Dimensions ---</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Universalism: Understanding, Helping, Environment</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Universalism'</span>] <span class="op">=</span> df[[<span class="st">'ipudrst'</span>, <span class="st">'ipeqopt'</span>, <span class="st">'impenv'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Benevolence: Helping, Loyalty to friends</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Benevolence'</span>] <span class="op">=</span> df[[<span class="st">'iphlppl'</span>, <span class="st">'iplylfr'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Tradition: Modesty, Tradition</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Tradition'</span>] <span class="op">=</span> df[[<span class="st">'imptrad'</span>, <span class="st">'ipmodst'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Security: Safety, Strong Government</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Security'</span>] <span class="op">=</span> df[[<span class="st">'impsafe'</span>, <span class="st">'ipstrgv'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Conformity: Following rules, Behaving properly</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Conformity'</span>] <span class="op">=</span> df[[<span class="st">'ipfrule'</span>, <span class="st">'ipbhprp'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Self-Direction: Freedom, Creativity</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Self-Direction'</span>] <span class="op">=</span> df[[<span class="st">'impfree'</span>, <span class="st">'ipcrtiv'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Stimulation: Excitement, Adventure (Now using BOTH variables)</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Stimulation'</span>] <span class="op">=</span> df[[<span class="st">'ipadvnt'</span>, <span class="st">'impdiff'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Hedonism: Good times, Fun</span></span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Hedonism'</span>] <span class="op">=</span> df[[<span class="st">'ipgdtim'</span>, <span class="st">'impfun'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Achievement: Success, Ability, and Equality</span></span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Achievement'</span>] <span class="op">=</span> df[[<span class="st">'ipsuces'</span>, <span class="st">'ipshabt'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Power: Wealth, Respect</span></span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Power'</span>] <span class="op">=</span> df[[<span class="st">'imprich'</span>, <span class="st">'iprspot'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"âœ… All 10 dimensions calculated! The mapping now includes the newly added variables."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>âœ… All 10 dimensions calculated! The mapping now includes the newly added variables.</code></pre>
+</div>
+</div>
+<div id="e951e8b6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T13:02:38.417151Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T13:02:38.411594Z&quot;}}" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the List for the names of the new Schwartz values columns</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>schwartz_values <span class="op">=</span> [</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Universalism'</span>, <span class="st">'Benevolence'</span>, <span class="st">'Tradition'</span>, <span class="st">'Security'</span>,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Conformity'</span>, <span class="st">'Self-Direction'</span>, <span class="st">'Stimulation'</span>, <span class="st">'Hedonism'</span>,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Achievement'</span>, <span class="st">'Power'</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="a50cb370" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'total_schwartz_raw'</span>] <span class="op">=</span> df[schwartz_values].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[[<span class="st">'generation'</span>] <span class="op">+</span> schwartz_values <span class="op">+</span> [<span class="st">'total_schwartz_raw'</span>]].head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  generation  Universalism  Benevolence  Tradition  Security  Conformity  \
+0      Gen X      4.333333          5.0        5.5       5.0         5.0   
+1    Boomers      4.000000          4.5        3.5       4.5         4.0   
+2      Gen X      4.000000          4.5        4.0       4.0         4.5   
+4    Boomers      5.333333          5.0        5.0       5.0         5.5   
+5    Boomers      6.000000          6.0        6.0       5.0         4.5   
+
+   Self-Direction  Stimulation  Hedonism  Achievement  Power  \
+0             5.5          5.0       4.5          5.0    5.0   
+1             4.0          2.5       4.0          3.5    3.5   
+2             4.5          3.5       3.5          4.0    3.0   
+4             5.0          2.0       4.5          2.0    2.5   
+5             4.5          4.0       6.0          4.5    3.0   
+
+   total_schwartz_raw  
+0           49.833333  
+1           38.000000  
+2           39.500000  
+4           41.833333  
+5           49.500000  </code></pre>
+</div>
+</div>
+<div id="98cb7d08" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-03-12T13:02:49.553504Z&quot;,&quot;start_time&quot;:&quot;2026-03-12T13:02:49.525754Z&quot;}}" data-execution_count="18">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Cleaned Data Preview for the team</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">### Cleaned Data Preview"</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>display(df[[<span class="st">'generation'</span>, <span class="st">'lrscale'</span>] <span class="op">+</span> schwartz_values].head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+### Cleaned Data Preview</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -352,209 +684,316 @@ Column Names (First 50):
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">count</th>
-<th data-quarto-table-cell-role="th">mean</th>
-<th data-quarto-table-cell-role="th">std</th>
-<th data-quarto-table-cell-role="th">min</th>
-<th data-quarto-table-cell-role="th">25%</th>
-<th data-quarto-table-cell-role="th">50%</th>
-<th data-quarto-table-cell-role="th">75%</th>
-<th data-quarto-table-cell-role="th">max</th>
+<th data-quarto-table-cell-role="th">generation</th>
+<th data-quarto-table-cell-role="th">lrscale</th>
+<th data-quarto-table-cell-role="th">Universalism</th>
+<th data-quarto-table-cell-role="th">Benevolence</th>
+<th data-quarto-table-cell-role="th">Tradition</th>
+<th data-quarto-table-cell-role="th">Security</th>
+<th data-quarto-table-cell-role="th">Conformity</th>
+<th data-quarto-table-cell-role="th">Self-Direction</th>
+<th data-quarto-table-cell-role="th">Stimulation</th>
+<th data-quarto-table-cell-role="th">Hedonism</th>
+<th data-quarto-table-cell-role="th">Achievement</th>
+<th data-quarto-table-cell-role="th">Power</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">yrbrn</th>
-<td>159320.0</td>
-<td>2058.136405</td>
-<td>798.936893</td>
-<td>1928.0</td>
-<td>1955.0</td>
-<td>1970.0</td>
-<td>1986.0</td>
-<td>9999.0</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">ipadvnt</th>
-<td>87130.0</td>
-<td>3.960473</td>
-<td>1.524257</td>
-<td>1.0</td>
-<td>3.0</td>
-<td>4.0</td>
+<th data-quarto-table-cell-role="th">0</th>
+<td>Gen X</td>
+<td>9</td>
+<td>4.333333</td>
 <td>5.0</td>
-<td>9.0</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">ipadvnta</th>
-<td>50116.0</td>
-<td>5.226874</td>
-<td>10.625797</td>
-<td>1.0</td>
-<td>3.0</td>
-<td>4.0</td>
+<td>5.5</td>
 <td>5.0</td>
-<td>99.0</td>
+<td>5.0</td>
+<td>5.5</td>
+<td>5.0</td>
+<td>4.5</td>
+<td>5.0</td>
+<td>5.0</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">ipbhprp</th>
-<td>87130.0</td>
-<td>2.772088</td>
-<td>1.414628</td>
-<td>1.0</td>
-<td>2.0</td>
-<td>2.0</td>
+<th data-quarto-table-cell-role="th">1</th>
+<td>Boomers</td>
+<td>5</td>
+<td>4.000000</td>
+<td>4.5</td>
+<td>3.5</td>
+<td>4.5</td>
 <td>4.0</td>
-<td>9.0</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">ipbhprpa</th>
-<td>50116.0</td>
-<td>4.181439</td>
-<td>11.168821</td>
-<td>1.0</td>
-<td>2.0</td>
-<td>2.0</td>
-<td>3.0</td>
-<td>99.0</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">ipcrtiv</th>
-<td>87130.0</td>
-<td>2.756421</td>
-<td>1.438097</td>
-<td>1.0</td>
-<td>2.0</td>
-<td>3.0</td>
-<td>3.0</td>
-<td>9.0</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">ipcrtiva</th>
-<td>50116.0</td>
-<td>4.109167</td>
-<td>11.008806</td>
-<td>1.0</td>
-<td>2.0</td>
-<td>2.0</td>
-<td>3.0</td>
-<td>99.0</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">ipeqopt</th>
-<td>87130.0</td>
-<td>2.259164</td>
-<td>1.303671</td>
-<td>1.0</td>
-<td>1.0</td>
-<td>2.0</td>
-<td>3.0</td>
-<td>9.0</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">ipeqopta</th>
-<td>50116.0</td>
-<td>3.468792</td>
-<td>10.746210</td>
-<td>1.0</td>
-<td>1.0</td>
-<td>2.0</td>
-<td>3.0</td>
-<td>99.0</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">ipfrule</th>
-<td>87130.0</td>
-<td>3.338265</td>
-<td>1.532223</td>
-<td>1.0</td>
-<td>2.0</td>
-<td>3.0</td>
 <td>4.0</td>
-<td>9.0</td>
+<td>2.5</td>
+<td>4.0</td>
+<td>3.5</td>
+<td>3.5</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">ipfrulea</th>
-<td>50116.0</td>
-<td>5.136384</td>
-<td>12.449449</td>
-<td>1.0</td>
-<td>2.0</td>
-<td>3.0</td>
+<th data-quarto-table-cell-role="th">2</th>
+<td>Gen X</td>
+<td>5</td>
+<td>4.000000</td>
+<td>4.5</td>
 <td>4.0</td>
-<td>99.0</td>
+<td>4.0</td>
+<td>4.5</td>
+<td>4.5</td>
+<td>3.5</td>
+<td>3.5</td>
+<td>4.0</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Boomers</td>
+<td>5</td>
+<td>5.333333</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.5</td>
+<td>5.0</td>
+<td>2.0</td>
+<td>4.5</td>
+<td>2.0</td>
+<td>2.5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5</th>
+<td>Boomers</td>
+<td>3</td>
+<td>6.000000</td>
+<td>6.0</td>
+<td>6.0</td>
+<td>5.0</td>
+<td>4.5</td>
+<td>4.5</td>
+<td>4.0</td>
+<td>6.0</td>
+<td>4.5</td>
+<td>3.0</td>
 </tr>
 </tbody>
 </table>
 
 </div>
 </div>
+</div>
+</section>
+<section id="mrat-mean-rating-correction." class="level4">
+<h4 class="anchored" data-anchor-id="mrat-mean-rating-correction.">3. MRAT (Mean Rating) Correction.</h4>
+<ol type="1">
+<li>calculate the average score each person gave across all 21 original items.</li>
+</ol>
+<div id="4cdf4397" class="cell" data-execution_count="19">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hardcode the exact 21 ESS PVQ-21 items</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>mrat_items <span class="op">=</span> [</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ipudrst'</span>, <span class="st">'ipeqopt'</span>, <span class="st">'impenv'</span>, <span class="st">'iphlppl'</span>, <span class="st">'iplylfr'</span>,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'imptrad'</span>, <span class="st">'ipmodst'</span>, <span class="st">'impsafe'</span>, <span class="st">'ipstrgv'</span>, <span class="st">'ipfrule'</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ipbhprp'</span>, <span class="st">'impfree'</span>, <span class="st">'ipcrtiv'</span>, <span class="st">'ipadvnt'</span>, <span class="st">'impdiff'</span>,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ipgdtim'</span>, <span class="st">'impfun'</span>, <span class="st">'ipsuces'</span>, <span class="st">'ipshabt'</span>, <span class="st">'imprich'</span>, <span class="st">'iprspot'</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the MRAT score</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mrat_score'</span>] <span class="op">=</span> df[mrat_items].mean(axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<ol start="2" type="1">
+<li>Apply the MRAT Correction (Centering)</li>
+</ol>
+<div id="f4a02cc8" class="cell" data-execution_count="20">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the Correction: Dimension - MRAT</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> mrat_items:</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    df[<span class="ss">f'</span><span class="sc">{</span>item<span class="sc">}</span><span class="ss">_centered'</span>] <span class="op">=</span> df[item] <span class="op">-</span> df[<span class="st">'mrat_score'</span>]</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Group the centered items into the 10 Schwartz Dimensions </span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Universalism_centered'</span>] <span class="op">=</span> df[[<span class="st">'ipudrst_centered'</span>, <span class="st">'ipeqopt_centered'</span>, <span class="st">'impenv_centered'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Benevolence_centered'</span>] <span class="op">=</span> df[[<span class="st">'iphlppl_centered'</span>, <span class="st">'iplylfr_centered'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Tradition_centered'</span>] <span class="op">=</span> df[[<span class="st">'imptrad_centered'</span>, <span class="st">'ipmodst_centered'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Security_centered'</span>] <span class="op">=</span> df[[<span class="st">'impsafe_centered'</span>, <span class="st">'ipstrgv_centered'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Conformity_centered'</span>] <span class="op">=</span> df[[<span class="st">'ipfrule_centered'</span>, <span class="st">'ipbhprp_centered'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Self-Direction_centered'</span>] <span class="op">=</span> df[[<span class="st">'impfree_centered'</span>, <span class="st">'ipcrtiv_centered'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Stimulation_centered'</span>] <span class="op">=</span> df[[<span class="st">'ipadvnt_centered'</span>, <span class="st">'impdiff_centered'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Hedonism_centered'</span>] <span class="op">=</span> df[[<span class="st">'ipgdtim_centered'</span>, <span class="st">'impfun_centered'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Achievement_centered'</span>] <span class="op">=</span> df[[<span class="st">'ipsuces_centered'</span>, <span class="st">'ipshabt_centered'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Power_centered'</span>] <span class="op">=</span> df[[<span class="st">'imprich_centered'</span>, <span class="st">'iprspot_centered'</span>]].mean(axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<ol start="3" type="1">
+<li>Check the MRAT (Mean Rating) Correction by performing three validation</li>
+</ol>
+<p>A. Mathematical Integrity (Row-wise Check)</p>
+<div id="371f5d2b" class="cell" data-execution_count="21">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify that the centering worked by checking the sum of centered values for one respondent</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>centered_items <span class="op">=</span> [<span class="ss">f'</span><span class="sc">{</span>item<span class="sc">}</span><span class="ss">_centered'</span> <span class="cf">for</span> item <span class="kw">in</span> mrat_items]</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>row_sum <span class="op">=</span> df[centered_items].iloc[<span class="dv">0</span>].<span class="bu">sum</span>()</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Correct sum (items): </span><span class="sc">{</span>row_sum<span class="sc">:.15f}</span><span class="ss">"</span>)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-### 5. Country Distribution (Top 10)</code></pre>
+<pre><code>Correct sum (items): -0.000000000000004</code></pre>
+</div>
+</div>
+<p>The result is exactly zero. When we find the average of a group of numbers, and then subtract that average from every single number, adding them all back together must equal zero. So, it proves MRAT formula was 100% correct.</p>
+<p>B. Manual Spot Check (Directional Accuracy)</p>
+<div id="f82a69e9" class="cell" data-execution_count="22">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a verification table</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>check_df <span class="op">=</span> df[[<span class="st">'Universalism'</span>, <span class="st">'mrat_score'</span>, <span class="st">'Universalism_centered'</span>]].head(<span class="dv">5</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"### MRAT Verification (Universalism - mrat_score = Universalism_centered)"</span>)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(check_df)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co"># LOGIC: </span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="co"># If Universalism (e.g. 5.2) &gt; mrat_score (e.g. 4.0), </span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="co"># then Universalism_centered MUST be positive (e.g. 1.2).</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>### MRAT Verification (Universalism - mrat_score = Universalism_centered)
+   Universalism  mrat_score  Universalism_centered
+0      4.333333    4.952381              -0.619048
+1      4.000000    3.809524               0.190476
+2      4.000000    3.952381               0.047619
+4      5.333333    4.238095               1.095238
+5      6.000000    5.000000               1.000000</code></pre>
+</div>
+</div>
+<p>Respondent 5: Raw Universalism (6.0) - MRAT (5.0) = Centered (+1.0) Respondent 0: Raw Universalism (4.33) - MRAT (4.95) = Centered (-0.62) This confirms that a positive centered score correctly identifies a “High Priority” relative to the individual’s average, even if their raw scores were generally high (Yeasaying bias).</p>
+<p>C. Conceptual Check (Distribution Analysis)</p>
+<div id="d81d0de6" class="cell" data-execution_count="23">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">'Universalism_centered'</span>], kde<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'blue'</span>, label<span class="op">=</span><span class="st">'Centered'</span>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribution of Centered Universalism (Should cluster around 0)'</span>)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Sec1_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The histogram for Universalism_centered shows a healthy normal distribution ranging from approximately -3 to +3, with a peak (mode) shifted slightly to the right of zero (~0.5). This tells us that most people in Europe score “Universalism” slightly higher than their own personal average.</p>
+<p>Create the Master Analysis File</p>
+<div id="c6afb2e7" class="cell" data-execution_count="24">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.Define the specific columns we want to keep for the final analysis</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>centered_columns <span class="op">=</span> [<span class="ss">f'</span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">_centered'</span> <span class="cf">for</span> v <span class="kw">in</span> schwartz_values]</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>analysis_columns <span class="op">=</span> [</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'idno'</span>, <span class="st">'cntry'</span>, <span class="st">'essround'</span>, <span class="st">'generation'</span>, <span class="st">'yrbrn'</span>, <span class="st">'agea'</span>, <span class="st">'gndr'</span>, <span class="st">'anweight'</span>, <span class="st">'lrscale'</span>, <span class="st">'stflife'</span>, <span class="st">'trstprl'</span>, <span class="st">'gincdif'</span>, <span class="st">'mrat_score'</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    ] <span class="op">+</span> centered_columns</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co"># create final analysis file</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>df[analysis_columns].to_csv(<span class="st">"ess_final_analysis.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"✅ Master Analysis File Saved: 'ess_final_analysis.csv'"</span>)</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="co">#print(centered_columns)</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df[analysis_columns].head())</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>✅ Master Analysis File Saved: 'ess_final_analysis.csv'</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="descriptive-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-analysis">2. Descriptive Analysis</h2>
+<section id="sample-composition-demographics" class="level3">
+<h3 class="anchored" data-anchor-id="sample-composition-demographics">1. Sample Composition (Demographics)</h3>
+<p>We would like to show the distribution of the respondents to tell how many people from each generation are represented.</p>
+<div id="a6e8d089" class="cell" data-execution_count="25">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the order for consistent plotting</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>gen_order <span class="op">=</span> [<span class="st">'Gen Z'</span>, <span class="st">'Millennials'</span>, <span class="st">'Gen X'</span>, <span class="st">'Boomers'</span>, <span class="st">'Silent Gen'</span>]</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'generation'</span>, palette<span class="op">=</span><span class="st">'viridis'</span>, order<span class="op">=</span>gen_order)</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Figure 1: Sample Distribution by Generation'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Generation'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Respondents'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>plt.grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Print counts to check the 'Unknown' category</span></span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Value Counts for Generations:"</span>)</span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'generation'</span>].value_counts())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\Tayami\AppData\Local\Temp\ipykernel_25008\1275408843.py:8: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.countplot(data=df, x='generation', palette='viridis', order=gen_order)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre><code>cntry
-DE    13503
-IT     8250
-BG     7155
-AT     6856
-IE     6003
-ES     5795
-FR     5758
-HU     5628
-GR     5556
-RS     5111
+<div>
+<figure class="figure">
+<p><img src="Sec1_files/figure-html/cell-26-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Value Counts for Generations:
+generation
+Boomers        43747
+Gen X          36956
+Millennials    29632
+Silent Gen     13194
+Gen Z          12925
 Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </section>
-<section id="data-cleansing" class="level3">
-<h3 class="anchored" data-anchor-id="data-cleansing">Data Cleansing</h3>
-</section>
-</section>
-<section id="handling-missing-data-refusals-dont-knows" class="level1">
-<h1>— 1. Handling Missing Data (Refusals, Don’t Knows) —</h1>
-</section>
-<section id="we-replace-ess-specific-missing-codes-with-nan-not-a-number" class="level1">
-<h1>We replace ESS-specific missing codes with NaN (Not a Number)</h1>
-<p>value_cols = [c for c in df.columns if c.startswith(‘ip’)] df[value_cols] = df[value_cols].replace([7, 8, 9], np.nan) df[‘lrscale’] = df[‘lrscale’].replace([77, 88, 99], np.nan) df[‘yrbrn’] = df[‘yrbrn’].replace([9999], np.nan)</p>
-</section>
-<section id="reverse-coding-the-values" class="level1">
-<h1>— 2. Reverse Coding the Values —</h1>
-</section>
-<section id="transformation-max-1---original_value" class="level1">
-<h1>Transformation: (Max + 1) - original_value</h1>
-</section>
-<section id="this-ensures-6-very-much-like-me-and-1-not-at-all-like-me" class="level1">
-<h1>This ensures 6 = “Very much like me” and 1 = “Not at all like me”</h1>
-<p>df[value_cols] = 7 - df[value_cols]</p>
-</section>
-<section id="creating-generational-cohorts" class="level1">
-<h1>— 3. Creating Generational Cohorts —</h1>
-<p>conditions = [ (df[‘yrbrn’] &gt;= 1997), (df[‘yrbrn’] &gt;= 1981) &amp; (df[‘yrbrn’] &lt;= 1996), (df[‘yrbrn’] &gt;= 1965) &amp; (df[‘yrbrn’] &lt;= 1980), (df[‘yrbrn’] &lt;= 1964)] labels = [‘Gen Z’, ‘Millennials’, ‘Gen X’, ‘Boomers’] df[‘generation’] = np.select(conditions, labels, default=‘Unknown’)</p>
-</section>
-<section id="creating-schwartz-value-dimensions-the-full-10" class="level1">
-<h1>— 4. Creating Schwartz Value Dimensions (The Full 10) —</h1>
-</section>
-<section id="we-calculate-the-mean-of-specific-items-to-create-the-core-value-pillars" class="level1">
-<h1>We calculate the mean of specific items to create the core value pillars</h1>
-<p>df[‘Universalism’] = df[[‘ipudrst’, ‘iphlppl’, ‘ipenvir’]].mean(axis=1) df[‘Benevolence’] = df[[‘iphlppl’, ‘ipudrst’]].mean(axis=1) df[‘Tradition’] = df[[‘imptrad’, ‘ipmodst’]].mean(axis=1) df[‘Security’] = df[[‘impsafe’, ‘ipstrgv’]].mean(axis=1) df[‘Conformity’] = df[[‘ipfrule’, ‘ipbhvar’]].mean(axis=1) df[‘Self-Direction’] = df[[‘impfree’, ‘ipgdtim’]].mean(axis=1) df[‘Stimulation’] = df[[‘ipstmlt’, ‘iphlth’]].mean(axis=1) df[‘Hedonism’] = df[[‘ipgdtim’, ‘impdiff’]].mean(axis=1) df[‘Achievement’] = df[[‘ipeqopt’, ‘ipshlpp’]].mean(axis=1) df[‘Power’] = df[[‘iprich’, ‘iprspot’]].mean(axis=1)</p>
-</section>
-<section id="list-of-master-value-columns-for-easy-access-in-section-2" class="level1">
-<h1>List of Master Value columns for easy access in Section 2</h1>
-<p>schwartz_values = [ ‘Universalism’, ‘Benevolence’, ‘Tradition’, ‘Security’, ‘Conformity’, ‘Self-Direction’, ‘Stimulation’, ‘Hedonism’, ‘Achievement’, ‘Power’]</p>
-<p>print(“Data Cleansing Complete: Missing values handled and generations assigned.”)</p>
-</section>
-<section id="cleaned-data-preview" class="level1">
-<h1>— 5. Cleaned Data Preview —</h1>
-</section>
-<section id="verification-check-for-the-project-team" class="level1">
-<h1>Verification check for the project team</h1>
-<p>print(“### Cleaned Data Preview (Transformed Variables)”) display(df[[‘generation’, ‘lrscale’] + schwartz_values].head())</p>
-<p>```</p>
-<section id="headline-2" class="level2">
-<h2 class="anchored" data-anchor-id="headline-2">Headline 2</h2>
+<section id="the-generational-value-heatmap-mrat-corrected" class="level3">
+<h3 class="anchored" data-anchor-id="the-generational-value-heatmap-mrat-corrected">2. The Generational Value Heatmap (MRAT Corrected)</h3>
+<div id="c27798d9" class="cell" data-execution_count="26">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of the 10 centered columns we created earlier</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>centered_cols <span class="op">=</span> [<span class="ss">f'</span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">_centered'</span> <span class="cf">for</span> v <span class="kw">in</span> schwartz_values]</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean for your 5 generations</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>gen_means <span class="op">=</span> df.groupby(<span class="st">'generation'</span>)[centered_cols].mean().reindex(gen_order)</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>))</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>sns.heatmap(gen_means, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">'RdBu_r'</span>, center<span class="op">=</span><span class="dv">0</span>, fmt<span class="op">=</span><span class="st">".3f"</span>)</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Figure 2: Relative Value Priorities (MRAT Corrected)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Schwartz Human Values (Centered)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Generation'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Sec1_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Figure 2 illustrates the relative value priorities across five generational cohorts using MRAT-corrected scores. A clear generational divide is visible in the Conservation values; specifically, Tradition and Security show a linear increase in priority from Gen Z to the Silent Generation. Conversely, Stimulation—representing an openness to novelty—is significantly less prioritized by older cohorts (Silent Gen: -1.124) compared to younger ones. Notably, Universalism is the only value that remains positive across all generational cohorts, though its relative priority — measured against each respondent’s personal average — is strongest among Boomers and the Silent Generation.</p>
 
 
 </section>

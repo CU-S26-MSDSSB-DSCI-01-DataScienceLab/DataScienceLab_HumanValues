@@ -6,7 +6,7 @@ title: "Introduction"
 
 Understanding how personal values shape political attitudes is a central question in political sociology. In Europe, this relationship has been tested by major societal disruptions, most notably the COVID-19 pandemic, which created a rare opportunity to examine whether a collective shock can measurably alter the link between individual value systems and political orientations.
 
-This project uses data from the European Social Survey (ESS), covering Round 9 (2018, pre-pandemic), Round 10 (2020–2022, pandemic period), and Round 11 (2022–2024, post-pandemic). The analysis is grounded in the **Schwartz Theory of Basic Human Values**, which organises ten core motivational values; from Universalism and Benevolence to Security, Conformity, and Power in a circular structure where adjacent values are compatible and opposing values reflect conflicting motivational priorities.
+This project uses data from the European Social Survey (ESS), covering Round 9 (2018, pre-pandemic), Round 10 (2020–2022, pandemic period), and Round 11 (2022–2024, post-pandemic). The analysis is grounded in the **Schwartz Theory of Basic Human Values**, which organises ten core motivational values — from Universalism and Benevolence to Security, Conformity, and Power — in a circular structure where adjacent values are compatible and opposing values reflect conflicting motivational priorities.
 
 By comparing respondents across five generational cohorts (Generation Z, Millennials, Generation X, Boomers, and the Silent Generation), the study investigates whether younger generations are developing a distinct value profile that may reshape future European political dynamics.
 
@@ -29,12 +29,13 @@ The Research Questions are:
 
 1. [To what extent do Schwartz’s 10 basic human values predict political attitudes across European countries, and which values have the greatest impact?](sibahle_question_1.ipynb)
 
-2. [How do political attitudes and value priorities differ across generational cohorts (Gen Z, Millennials, Gen X, and Boomers) in the Pre and post pandemic landscape?](Q2_Tayaphon.ipynb)
+2. [To what extent does the correlation between human values and political attitudes vary between different European countries?](Maria_Question.ipynb)
 
-3. [Did the COVID-19 pandemic lead to a measurable shift in 'Conservation' values (Security, Conformity, Tradition) and 'Political Trust' between Round 9 and Round 11?](pelin_analysis.ipynb)
+3. [How do political attitudes and value priorities differ across generational cohorts (Gen Z, Millennials, Gen X, and Boomers) in the Pre and post pandemic landscape?](Tayaphon_Question.ipynb)
 
 4. [Does the link between personal values and political orientation become stronger or weaker as respondents age, or is the relationship fixed within generational cohorts?](Felix-Analysis.ipynb)
 
-5. [How does the value of 'Universalism' predict attitudes toward government-led income redistribution, and has this relationship changed for Gen Z compared to previous generations?](Uyazi_Q5.ipynb)
+5. [Did the COVID-19 pandemic lead to a measurable shift in 'Conservation' values (Security, Conformity, Tradition) and 'Political Trust' between Round 9 and Round 11?](pelin_analysis.ipynb)
 
-6. [To what extent does the correlation between human values and political attitudes vary between different European countries?](Maria_Question_6.ipynb)
+6. [How does the value of 'Universalism' predict attitudes toward government-led income redistribution, and has this relationship changed for Gen Z compared to previous generations?](Uyazi_Question.ipynb )
+

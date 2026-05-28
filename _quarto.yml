@@ -17,11 +17,11 @@ website:
       - introduction.qmd
       - literature_review.ipynb
       - sibahle_question_1.ipynb
-      - Q2_Tayaphon.ipynb
-      - pelin_analysis.ipynb
+      - Maria_Question.ipynb
+      - Tayaphon_Question.ipynb
       - Felix-Analysis.ipynb
-      - Uyazi_Q5.ipynb
-      - Maria_Question_6.ipynb
+      - pelin_analysis.ipynb
+      - Uyazi_Question.ipynb 
       - conclusion.qmd
 
 format:
