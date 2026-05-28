@@ -2,7 +2,7 @@
 title: "Introduction"
 ---
 
-# Project Overview
+## Project Overview
 
 Understanding how personal values shape political attitudes is a central question in political sociology. In Europe, this relationship has been tested by major societal disruptions, most notably the COVID-19 pandemic, which created a rare opportunity to examine whether a collective shock can measurably alter the link between individual value systems and political orientations.
 
@@ -10,13 +10,13 @@ This project uses data from the European Social Survey (ESS), covering Round 9 (
 
 By comparing respondents across five generational cohorts (Generation Z, Millennials, Generation X, Boomers, and the Silent Generation), the study investigates whether younger generations are developing a distinct value profile that may reshape future European political dynamics.
 
-# Data and Preprocessing
+## Data and Preprocessing
 
 The analysis uses data from ESS Rounds 9–11, covering approximately 136,000 respondents across Europe. Human values are measured using the Portrait Values Questionnaire (PVQ-21), a 21-item battery rated on a 1–6 scale.
 
 The raw data were preprocessed in three main steps: missing value codes were replaced with `NaN`, items were reverse-coded so that higher scores reflect stronger endorsement, and a **MRAT (Mean Rating) correction** was applied. The MRAT correction centers each respondent's value scores around their own personal mean, removing individual response style bias and enabling reliable comparisons across rounds and generations. The resulting dataset, `ess_final_analysis.csv`, is used in all subsequent analyses.
 
-# Sections
+## Sections
 
 This project is structured into several sections, each addressing a specific part of the analysis and research questions.
 
@@ -37,5 +37,5 @@ The Research Questions are:
 
 5. [Did the COVID-19 pandemic lead to a measurable shift in 'Conservation' values (Security, Conformity, Tradition) and 'Political Trust' between Round 9 and Round 11?](pelin_analysis.ipynb)
 
-6. [How does the value of 'Universalism' predict attitudes toward government-led income redistribution, and has this relationship changed for Gen Z compared to previous generations?](Uyazi_Question.ipynb )
+6. [How does the value of 'Universalism' predict attitudes toward government-led income redistribution, and has this relationship changed for Gen Z compared to previous generations?](Uyazi_Question.ipynb)
 
