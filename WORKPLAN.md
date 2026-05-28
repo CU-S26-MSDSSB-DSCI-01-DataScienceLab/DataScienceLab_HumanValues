@@ -21,15 +21,15 @@ We want to find answers to the following questions:
 
 1- To what extent do Schwartz's ten basic human values predict political attitudes in Europe, and which values have the greatest impact?
 
-2- How do political attitudes and value priorities differ across generational cohorts (Gen Z, Millennials, Gen X, and Boomers) in the Pre and post pandemic landscape?
+2- To what extent does the correlation between human values and political attitudes vary between different European countries?
 
-3- Did the COVID-19 pandemic lead to a measurable shift in 'Conservation' values (Security, Conformity, Tradition) and 'Political Trust' between Round 9 and Round 11?
+3- How do political attitudes and value priorities differ across generational cohorts (Gen Z, Millennials, Gen X, and Boomers) in the Pre and post pandemic landscape?
 
 4- Do age cohorts differ in life satisfaction and trust?
 
-5- How does the value of 'Universalism' predict attitudes toward government-led income redistribution, and has this relationship changed for Gen Z compared to previous generations?
+5- Did the COVID-19 pandemic lead to a measurable shift in 'Conservation' values (Security, Conformity, Tradition) and 'Political Trust' between Round 9 and Round 11?
 
-6- To what extent does the correlation between human values and political attitudes vary between different European countries?
+6- How does the value of 'Universalism' predict attitudes toward government-led income redistribution, and has this relationship changed for Gen Z compared to previous generations?
 
 ## Progress Presentation
 
@@ -43,7 +43,7 @@ She examined exclusively Question 2 about the differences in political attitudes
 
 *Uyazi Dube*: Prepared the executive summary for the project and identified the relevant variables in the European Social Survey dataset for analyzing the relationship between Universalism and support for income redistribution. Began constructing the Universalism value index and defined the redistribution attitude variable. Independent variable: Universalism value index constructed from value items:ipeqopt, ipudrst, and phlppl. 
 
-*Pelin* started the page for question 3 and wrote the outline of it, performed statistical tests, interpreted the results and created all visualizations for her question.
+*Pelin* started the page for question and wrote the outline of it, performed statistical tests, interpreted the results and created all visualizations for her question.
 
 *Maria* Aided in consolidation of our final findings to make a cohesive story for our final powerpoint presentation as well and did the analysis for the value-attitude correlation between different European countries.
 
@@ -56,17 +56,17 @@ Sibahle analysis of section 1 and laoding and looking and the data variables tha
 
 #### Team Member Contributions
 
-*Briefly describe for each team member what has been done.*
-
-*Mabhuda Sibahle 1*: *I did question 1 where i was analysing to what extent do schwarts human values predict political attidutes. first i looked at the circle provided by schwarts i wanted to see if it does hold on real world data.*  
+*Mabhuda Sibahle*: *I did question 1 where i was analysing to what extent do schwarts human values predict political attidutes. first i looked at the circle provided by schwarts i wanted to see if it does hold on real world data.*  
 
 *Uyazi Dube*: Conducted exploratory analysis to examine patterns across generational cohorts. 1. Data and Variables : The analysis uses data from Rounds 9–11 of the European Social Survey. 2.Key variables include: Dependent variable
 (gincdif – attitudes toward government reducing income differences) 
 
-*Pelin Kımız*: Conducted the full analysis for Question 3, examining changes in Conservation values (Security, Conformity, Tradition) and Political Trust across ESS Rounds 9, 10, and 11. Performed statistical tests, interpreted the results, and created all visualizations for her question. Configured GitHub pages such the draft website is live and ensured consistent formatting across all pages.
+*Pelin Kımız*: Conducted the full analysis for her question, examining changes in Conservation values (Security, Conformity, Tradition) and Political Trust across ESS Rounds 9, 10, and 11. Performed statistical tests, interpreted the results, and created all visualizations for her question. Configured GitHub pages such the draft website is live and ensured consistent formatting across all pages.
 
 *Tayaphon Rodsai* prepared the dataset, including Scale Reversal, cleaned missing values, created new columns (generation, 10 dimensions of Human Values), and corrected the scale to be centered (MRAT), conducted the full analysis for Question 2, examining the differences in political attitudes and value priorities across generational cohorts in the Pre and post-pandemic landscape, and created all visualizations for her question.
+
 *Felix* contributed towards the planning and development of the presentation.
+
 *Maria* Aided in consolidation of our final findings to make a cohesive story for our final powerpoint presentation as well and did the analysis for the value-attitude correlation between different European countries.
 
 ...
