@@ -50,8 +50,6 @@ She examined exclusively Question 2 about the differences in political attitudes
 *Felix* contributed towards developing a literature review that shows the perspectives of scholars pertaining to human values. This literature serves as an evidence base to also support the findings of the study. 
 Sibahle analysis of section 1 and laoding and looking and the data variables that i need to answer my section which is question 1
 
-...
-
 ## Final Presentation
 
 #### Team Member Contributions
